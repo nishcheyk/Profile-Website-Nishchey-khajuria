@@ -1,12 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const FallingKeysComponent = () => {
   const [keys, setKeys] = useState([]);
 
   const availableKeys = [
-    '<', '>', 'hello world', 'if else', '+', '-', '*', '/', '%', '=', '!', '<', '>', '&', '|', '^', '~', '?',
-    ':', ';', ',', '.', '_', '$', '#', '@', ';', "'", '?', '(', ')', '&', '$', '@', '#', '~', '&', '|', '^',
-    '~', '<<', '>>', '>>>', '++', '--'
+    "< >",
+    "",
+    "if else",
+    "+",
+    "-",
+    "*",
+    "/",
+    "%",
+    "=",
+    "!",
+    "<",
+    ">",
+    "&",
+    "|",
+    "^",
+    "~",
+    "?",
+    ":",
+    ";",
+    ",",
+    ".",
+    "_",
+    "$",
+    "#",
+    "@",
+    ";",
+    "'",
+    "?",
+    "( )",
+    "&",
+    "$",
+    "@",
+    "#",
+    "~",
+    "&",
+    "|",
+    "^",
+    "~",
+    "<<",
+    ">>",
+    ">>>",
+    "++",
+    "--",
   ];
 
   useEffect(() => {
@@ -15,7 +55,8 @@ const FallingKeysComponent = () => {
       const newKeys = [];
 
       for (let i = 0; i < count; i++) {
-        const randomKey = availableKeys[Math.floor(Math.random() * availableKeys.length)];
+        const randomKey =
+          availableKeys[Math.floor(Math.random() * availableKeys.length)];
         const initialLeft = Math.random() * window.innerWidth; // Random initial horizontal position
         const initialTop = Math.random() * window.innerHeight; // Random initial vertical position
         const newKey = {
@@ -28,7 +69,7 @@ const FallingKeysComponent = () => {
           directionY: Math.random() > 0.5 ? 1 : -1, // Random direction for Y-axis (1 for down, -1 for up)
           speed: Math.random() * 5 + 2, // Random speed between 2 to 7 units per second
           size: 18, // Initial font size
-          phase: 'expand', // Initial phase is 'expand'
+          phase: "expand", // Initial phase is 'expand'
         };
         newKeys.push(newKey);
 
@@ -64,15 +105,15 @@ const FallingKeysComponent = () => {
 
         // Update size based on the phase
         let newSize = key.size;
-        if (key.phase === 'expand' && newSize < 48) {
+        if (key.phase === "expand" && newSize < 48) {
           newSize += 1; // Increase size to maximum
-        } else if (key.phase === 'expand' && newSize >= 48) {
-          key.phase = 'shrink'; // Change phase to 'shrink'
-        } else if (key.phase === 'shrink' && newSize > 24) {
+        } else if (key.phase === "expand" && newSize >= 48) {
+          key.phase = "shrink"; // Change phase to 'shrink'
+        } else if (key.phase === "shrink" && newSize > 24) {
           newSize -= 1; // Shrink back to original size
-        } else if (key.phase === 'shrink' && newSize <= 24) {
-          key.phase = 'disappear'; // Change phase to 'disappear'
-        } else if (key.phase === 'disappear' && newSize > 0) {
+        } else if (key.phase === "shrink" && newSize <= 24) {
+          key.phase = "disappear"; // Change phase to 'disappear'
+        } else if (key.phase === "disappear" && newSize > 0) {
           newSize -= 1; // Reduce size to make the key disappear
         }
 
@@ -87,24 +128,28 @@ const FallingKeysComponent = () => {
   }, []);
 
   return (
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      height: '100vh',
-      overflow: 'hidden',
-      backgroundColor: 'black', // Set black background
-    }}>
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        backgroundColor: "black", // Set black background
+      }}
+    >
       {keys.map((key) => (
         <div
           key={key.id}
           style={{
-            position: 'absolute',
+            position: "absolute",
             left: key.left,
             top: key.top,
             fontSize: `${key.size}px`, // Adjust font size based on the size property
-            color: '#fff',
+            color: "#fff",
             transform: `rotate(${key.rotation}deg)`, // Apply rotation
-            transition: 'left 0.05s linear, top 0.05s linear, font-size 0.05s linear', // Smooth transitions
+            transition:
+              "left 0.05s linear, top 0.05s linear, font-size 0.05s linear", // Smooth transitions
+            zIndex: "0", // Ensure keys appear above the background
           }}
         >
           {key.char}

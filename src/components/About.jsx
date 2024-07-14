@@ -16,7 +16,7 @@ const ServiceCard = () => (
 const About = () => {
   return (
     <div>
-      <div className='bg-black h-[calc(93vh)] w-full text-white sm:flex sm:justify-around about  pt-40 overflow-x-hidden' id='about'> {/* Increased py-8 to py-12 and adjusted pt-190px to pt-20 */}
+      <div className='bg-black h-[calc(100vh)] w-full text-white sm:flex sm:justify-around about  pt-40 overflow-x-hidden' id='about'> {/* Increased py-8 to py-12 and adjusted pt-190px to pt-20 */}
         <div className='flex flex-col justify-around'>
           <div className='sm:px-16 px-2 text-center'> {/* Center align the content */}
             <h2 className='text-4xl sm:text-5xl font-extrabold mt-2'>Introduction</h2>
