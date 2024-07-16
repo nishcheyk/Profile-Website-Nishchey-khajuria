@@ -18,28 +18,33 @@ export const name = 'Nishchey';
 
 export const experiences = [
     {
-        'company': 'Inncircles Technologies',
-        'role': 'Product Developer',
-        'duration': 'April 2023 - Present',
-        'logo': 'https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/e5gz1yggdy8sc1umna3e',
+        'company': 'Xebia ',
+        'duration': 'July 2024 - Present',
+        'logo': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaiBS4CRvJgHyqOx8RNJjMg04vDL8FQNDArA&s',
         'points': [
-            'Involved in dynamic contributions to web and mobile📱 development projects, actively influencing and improving project outcomes.',
-            'Developed multiple shared components to simplify tasks for fellow developers, boosting efficiency and teamwork.',
-            'Enhanced product performance through significant contributions to backend development, optimizing essential components for improved efficiency 📈.',
-            'Implemented data security for the company’s product to provide role-based access control ⚙️.'
+            'During my internship at Xebia, I developed a comprehensive Banking Management System. This project involved using Node.js, Express, and MongoDB for the backend, and React with Tailwind CSS for the frontend. I integrated various APIs and utilized technologies like JWT, Bcrypt, Axios, MUI, dotenv, multer, nodemailer, and pdfkit to enhance functionality, security, and user experience. This experience significantly expanded my skills in full-stack development and project management.'
         ],
-        'url': 'https://inncircles.com/#home',
+        'url': 'https://xebia.com/',
     },
     {
-        'company': 'AT & T',
-        'role': 'Technical Intern',
-        'duration': 'Jan 2023 - March 2023',
-        'logo': 'https://www.att.com/ecms/dam/att/consumer/global/logos/att_globe_500x500.jpg',
+        'company': 'Thapar University ',
+        'duration': 'July 2022 - Present',
+        'logo': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ0gL2BJQMTBM0Jh1IpM3djngEdyT943xS47NhDRn1nH5h3HxO4Yspj0QXqV8BaMcfP4&usqp=CAU',
         'points': [
-            'Gained experience with Git version control contributing to the development and maintenance of code repositories.',
-            'Worked on the application dashboard, making it more user-friendly and improving its overall functionality📱.'
+            'During my B.Tech at Thapar University, which I joined through the Lateral Entry Engineering Test (LEET) after completing my diploma, I had a transformative educational experience. The curriculum provided a robust foundation in engineering principles, while practical assignments honed my problem-solving skills. his comprehensive education equipped me with the skills and knowledge necessary for a successful career in engineering.'
+
         ],
-        'url': 'https://www.att.com/',
+        'url': 'https://www.thapar.edu/',
+    },
+    {
+        'company': 'Govt Polytechnic Jammu ',
+
+        'duration': 'July 2019 - July 2022',
+        'logo': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWV0zEj1D31EzSqXEwtJdGsgS8B9mRtjWmw&s',
+        'points': [
+            'During my Diploma in Computer Engineering, which I pursued after completing my 10th grade, I had an enriching educational experience. The program provided an early and solid introduction to computer engineering principles. Extensive hands-on projects and practical sessions significantly enhanced my technical skills. The curriculum built a strong foundation that prepared me for further studies and a career in computer engineering.'
+        ],
+        'url': 'https://www.govtpolytechnicjammu.edu.in/',
     },
 ]
 

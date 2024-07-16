@@ -35,7 +35,7 @@ const Navbar = () => {
             Projects
           </Link>
           <Link to="/experience" className="mx-4 pr-5">
-            Experience
+          Career
           </Link>
           <Link to="/contact" className="mx-4 pr-5 first-letter:">
             Contact
