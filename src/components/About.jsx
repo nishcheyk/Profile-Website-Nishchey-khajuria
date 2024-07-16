@@ -25,7 +25,7 @@ const About = () => {
               <br/>
               When I'm not coding, you can find me exploring new technologies, reading tech blogs, or experimenting with different frameworks and libraries. I'm always eager to take on new challenges and collaborate with like-minded individuals. Let's connect and create something awesome together! 🌟</p>
             <ButtonLink
-              url='https://drive.google.com/file/d/1R1rCBA1MCcTbQj1_RnwiWor-vnerhBf3/view?usp=sharing'
+              url='https://drive.google.com/file/d/1M4888JlHa3P-Y5UcRd11Wx2_9Al5EY_C/view?usp=sharing'
               text='View Resume →'
               padding={`p-3`}
             />
