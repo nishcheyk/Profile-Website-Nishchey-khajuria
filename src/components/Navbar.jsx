@@ -42,7 +42,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="text-3xl sm:text-2xl flex-grow text-center ">
+        <div className="text-3xl sm:text-2xl flex-grow text-center font-semibold ">
           <a href="/">Nishchey Khajuria</a>
         </div>
 
