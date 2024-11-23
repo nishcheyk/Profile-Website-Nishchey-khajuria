@@ -19,7 +19,7 @@ export const name = 'Nishchey';
 export const experiences = [
     {
         'company': 'Xebia ',
-        'duration': 'July 2024 - Present',
+        'duration': 'June 2024 - July 2024',
         'logo': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaiBS4CRvJgHyqOx8RNJjMg04vDL8FQNDArA&s',
         'points': [
             'During my internship at Xebia, I developed a comprehensive Banking Management System. This project involved using Node.js, Express, and MongoDB for the backend, and React with Tailwind CSS for the frontend. I integrated various APIs and utilized technologies like JWT, Bcrypt, Axios, MUI, dotenv, multer, nodemailer, and pdfkit to enhance functionality, security, and user experience. This experience significantly expanded my skills in full-stack development and project management.'
