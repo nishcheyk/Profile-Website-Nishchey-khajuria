@@ -1,16 +1,17 @@
 import React from "react";
 import vpn from "../assets/vpn.png";
 import copeople from "../assets/copeople.png";
-import JSbanking from"../assets/";
-
+import JSbanking from "../assets/JSbank.png";
+import noImage from "Profile-Website-Nishchey\src\assets\NoImage.jpg";
 import Footer from "./Footer";
 
 const Projects = () => {
   const projects = [
     {
       title: "JS banking",
-      description:"A banking management system for handling customer accounts,Download account statements through gmail,OTP-based password reset, transactions and customer service operations.",
-      image:JSbanking,
+      description:
+        "A banking management system for handling customer accounts,Download account statements through gmail,OTP-based password reset, transactions and customer service operations.",
+      image: JSbanking,
       git: "https://github.com/nishcheyk/banking",
       technologies: [
         "Node.js",
@@ -47,7 +48,7 @@ const Projects = () => {
       title: "E-Commerce Website",
       description:
         "Provides a platform for users to browse and purchase products online. Incorporates features such as product listings, search functionality, user authentication, and shopping cart management.",
-      image: vpn,
+      image: JSbanking,
       git: "https://github.com/example/ecomm-project",
       technologies: ["MongoDB", "Express.js", "React.js"],
     },
@@ -55,7 +56,7 @@ const Projects = () => {
       title: "Social Media Website",
       description:
         "Full-stack web application for creating public/private accounts, user interactions (follow, posts, photos, shares, comments, etc.).",
-      image: vpn,
+      image: JSbanking,
       git: "https://github.com/example/social-media",
       technologies: ["MongoDB", "Express.js", "Redux"],
     },
@@ -63,7 +64,7 @@ const Projects = () => {
       title: "Volume Control through Hand Gestures",
       description:
         "Controls volume using hand gestures, tracking hand movements via webcam feed and adjusting volume based on finger distance.",
-      image: vpn,
+      image: noImage,
       git: "https://github.com/example/volume-control",
       technologies: ["MediaPipe", "OpenCV"],
     },
@@ -87,7 +88,7 @@ const Projects = () => {
 
   // Determine which image to use based on the title
   const getProjectImage = (title) => {
-    return title === "Snap Shot" ? copeople : vpn;
+    return title === "Blood Bank Management System" ?  vpn:copeople ;
   };
 
   return (
@@ -140,7 +141,7 @@ const Projects = () => {
             <a href="#">
               <img
                 className="w-full rounded-t-lg h-auto object-cover"
-                src={getProjectImage(project.title)}
+                src={project.image}
                 alt=""
                 style={{ width: "100%", height: "auto" }}
               />
