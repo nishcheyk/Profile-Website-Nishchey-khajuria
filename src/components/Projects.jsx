@@ -2,7 +2,11 @@ import React from "react";
 import vpn from "../assets/vpn.png";
 import copeople from "../assets/copeople.png";
 import JSbanking from "../assets/JSbank.png";
-import noImage from "Profile-Website-Nishchey\src\assets\NoImage.jpg";
+import noImage from "../assets/noImage.png";
+import volumeControl from "../assets/volumeControl.png";
+import eCom from "../assets/eCom.png";
+import socialMedia from "../assets/SocialMedia.png";
+import tictaktoe from "../assets/tictaktoe.png";
 import Footer from "./Footer";
 
 const Projects = () => {
@@ -34,7 +38,7 @@ const Projects = () => {
       title: "Thapar-links",
       description:
         "Full-stack web application to create public/private account (accept other) users, follow request posts, photos, shares, comments, etc.",
-      image: copeople,
+      image: socialMedia,
       git: "https://github.com/nishcheyk/Socail-media-project-using-MERN",
       technologies: [
         "MongoDB",
@@ -45,26 +49,19 @@ const Projects = () => {
       ],
     },
     {
-      title: "E-Commerce Website",
+      title: "Asankart",
       description:
         "Provides a platform for users to browse and purchase products online. Incorporates features such as product listings, search functionality, user authentication, and shopping cart management.",
-      image: JSbanking,
+      image: eCom,
       git: "https://github.com/example/ecomm-project",
       technologies: ["MongoDB", "Express.js", "React.js"],
     },
-    {
-      title: "Social Media Website",
-      description:
-        "Full-stack web application for creating public/private accounts, user interactions (follow, posts, photos, shares, comments, etc.).",
-      image: JSbanking,
-      git: "https://github.com/example/social-media",
-      technologies: ["MongoDB", "Express.js", "Redux"],
-    },
+
     {
       title: "Volume Control through Hand Gestures",
       description:
         "Controls volume using hand gestures, tracking hand movements via webcam feed and adjusting volume based on finger distance.",
-      image: noImage,
+      image: volumeControl,
       git: "https://github.com/example/volume-control",
       technologies: ["MediaPipe", "OpenCV"],
     },
@@ -72,24 +69,26 @@ const Projects = () => {
       title: "Library Management System",
       description:
         "A system for managing library operations, including book management, member management, and borrowing/returning books.",
-      image: copeople,
+      image: noImage,
       git: "https://github.com/nishcheyk/UI-UX-project/tree/main/Library-Management-System/Library-Management-System-master",
       technologies: ["Java", "MySQL"],
+    },
+    {
+      title: "tic tak toe",
+      description: " for a Tic-Tac-Toe game that supports 3x3 and 4x4 grids. Players alternate turns, aiming to align three or four symbols (X or O) horizontally, vertically, or diagonally, with real-time updates and bug-free functionality.",
+      image: tictaktoe,
+      git: "https://github.com/nishcheyk/tick-tak-toe-VB.NET-pc.git",
+      technologies: ["VB.net"],
     },
     {
       title: "Blood Bank Management System",
       description:
         "An online system for managing blood bank operations, including donor registration, blood collection, and inventory management.",
-      image: copeople,
+      image: noImage,
       git: "https://github.com/nishcheyk/UI-UX-project/tree/main/Blood%20bank%20mangement%20sysytem",
       technologies: ["PHP", "MySQL"],
     },
   ];
-
-  // Determine which image to use based on the title
-  const getProjectImage = (title) => {
-    return title === "Blood Bank Management System" ?  vpn:copeople ;
-  };
 
   return (
     <div

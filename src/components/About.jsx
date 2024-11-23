@@ -33,19 +33,9 @@ const About = () => {
               Introduction
             </h2>
             <p className="mt-3 mb-6 text-[17px] max-w-3xl leading-[30px]">
-              👨‍💻 Hello there! I'm Nishchey Khajuria, a passionate full-stack
-              developer with a knack for creating dynamic and responsive web
-              applications. My journey in the tech world began with a
-              fascination for how things work behind the scenes. This curiosity
-              led me to delve into coding, and since then, I've been on an
-              exciting adventure, learning and building amazing projects.
-              <br />
-              <br />
-              When I'm not coding, you can find me exploring new technologies,
-              reading tech blogs, or experimenting with different frameworks and
-              libraries. I'm always eager to take on new challenges and
-              collaborate with like-minded individuals. Let's connect and create
-              something awesome together! 🌟
+            👨‍💻 Hey there! I'm Nishchey Khajuria, your friendly neighborhood full-stack developer with a passion for crafting sleek, responsive web apps that actually work (no broken links, promise!). My tech adventure kicked off with a geeky curiosity about what makes things tick behind the scenes—and now, I get to build them! 🚀
+<br/><br/><br/>
+            When I’m not glued to my screen debugging (or celebrating a successful deploy), you’ll catch me geeking out over new tech, diving into spicy tech blogs, or testing the limits of cool frameworks and libraries. Got a wild idea? Let’s team up and make some tech magic happen! 🌟
               <br/>
               <br/>
               <br/>
