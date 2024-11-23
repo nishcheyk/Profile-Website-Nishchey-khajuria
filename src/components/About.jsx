@@ -46,11 +46,14 @@ const About = () => {
               libraries. I'm always eager to take on new challenges and
               collaborate with like-minded individuals. Let's connect and create
               something awesome together! 🌟
+              <br/>
+              <br/>
+              <br/>
             </p>
             <ButtonLink
               url="https://drive.google.com/file/d/1M4888JlHa3P-Y5UcRd11Wx2_9Al5EY_C/view?usp=sharing"
               text="View Resume →"
-              padding={`p-7`}
+              padding={`p-4`}
             />
           </div>
           <div className="mt-20 flex justify-center flex-wrap gap-7">

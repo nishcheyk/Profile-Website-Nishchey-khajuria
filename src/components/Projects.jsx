@@ -1,17 +1,47 @@
 import React from "react";
 import vpn from "../assets/vpn.png";
 import copeople from "../assets/copeople.png";
+import JSbanking from"../assets/";
+
 import Footer from "./Footer";
 
 const Projects = () => {
   const projects = [
+    {
+      title: "JS banking",
+      description:"A banking management system for handling customer accounts,Download account statements through gmail,OTP-based password reset, transactions and customer service operations.",
+      image:JSbanking,
+      git: "https://github.com/nishcheyk/banking",
+      technologies: [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "React",
+        "Tailwind CSS",
+        "Axios",
+        "MUI (Material UI)",
+        "Backend",
+        "JWT",
+        "Bcrypt",
+        "dotenv",
+        "multer",
+        "nodemailer",
+        "pdfkit",
+      ],
+    },
     {
       title: "Thapar-links",
       description:
         "Full-stack web application to create public/private account (accept other) users, follow request posts, photos, shares, comments, etc.",
       image: copeople,
       git: "https://github.com/nishcheyk/Socail-media-project-using-MERN",
-      technologies: ["MongoDB", "Express.js", "Redux", "Authentication", "React.js"],
+      technologies: [
+        "MongoDB",
+        "Express.js",
+        "Redux",
+        "Authentication",
+        "React.js",
+      ],
     },
     {
       title: "E-Commerce Website",
@@ -53,14 +83,6 @@ const Projects = () => {
       git: "https://github.com/nishcheyk/UI-UX-project/tree/main/Blood%20bank%20mangement%20sysytem",
       technologies: ["PHP", "MySQL"],
     },
-    {
-      title: "Banking Management System",
-      description:
-        "A banking management system for handling customer accounts, transactions, loans, and customer service operations.",
-      image: copeople,
-      git: "https://github.com/nishcheyk/banking",
-      technologies: ["Node.js", "Express", "MongoDB", "React", "Tailwind CSS", "Axios", "MUI (Material UI)", "Backend", "JWT", "Bcrypt", "dotenv", "multer", "nodemailer", "pdfkit"],
-    },
   ];
 
   // Determine which image to use based on the title
@@ -69,20 +91,24 @@ const Projects = () => {
   };
 
   return (
-    <div style={{
-      backgroundColor: "black",
-      minHeight: "100vh",
-      overflow: "hidden",
-      paddingBottom:"90px"
-    }}>
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "1.75rem",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "8rem 1rem 1rem",
-      }}>
+    <div
+      style={{
+        backgroundColor: "black",
+        minHeight: "100vh",
+        overflow: "hidden",
+        paddingBottom: "90px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "1.75rem",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "8rem 1rem 1rem",
+        }}
+      >
         {projects.map((project, index) => (
           <div
             key={index}
