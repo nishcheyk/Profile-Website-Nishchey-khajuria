@@ -41,13 +41,13 @@ const About = () => {
               <br/>
             </p>
             <ButtonLink
-              url="https://drive.google.com/file/d/1M4888JlHa3P-Y5UcRd11Wx2_9Al5EY_C/view?usp=sharing"
+              url="https://drive.google.com/file/d/1GROxq_-IPNylTTZB78oNDinDdR0Bh8-h/view?usp=sharing"
               text="View Resume →"
               padding={`p-4`}
             />
           </div>
           <div className="mt-20 flex justify-center flex-wrap gap-7">
-            {/* Place your ServiceCard components or other content here */}
+           
           </div>
         </div>
       </div>
