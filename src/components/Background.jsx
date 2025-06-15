@@ -5,7 +5,6 @@ const FallingKeysComponent = () => {
 
   const availableKeys = [
     "< >",
-    "",
     "if else",
     "+",
     "-",
@@ -55,8 +54,7 @@ const FallingKeysComponent = () => {
       const newKeys = [];
 
       for (let i = 0; i < count; i++) {
-        const randomKey =
-          availableKeys[Math.floor(Math.random() * availableKeys.length)];
+        const randomKey =   availableKeys[Math.floor(Math.random() * availableKeys.length)];
         const initialLeft = Math.random() * window.innerWidth; // Random initial horizontal position
         const initialTop = Math.random() * window.innerHeight; // Random initial vertical position
         const newKey = {

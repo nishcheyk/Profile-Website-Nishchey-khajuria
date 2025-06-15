@@ -31,6 +31,9 @@ const Navbar = () => {
           <Link to="/about" className="mx-4 pl-5 pr-5">
             About
           </Link>
+           <Link to="/skills" className="mx-4 pr-5 first-letter:">
+            Skills
+          </Link>
           <Link to="/projects" className="mx-4 pr-5">
             Projects
           </Link>
@@ -40,6 +43,7 @@ const Navbar = () => {
           <Link to="/contact" className="mx-4 pr-5 first-letter:">
             Contact
           </Link>
+
         </div>
 
         <div className="text-3xl sm:text-2xl flex-grow text-center font-semibold ">
