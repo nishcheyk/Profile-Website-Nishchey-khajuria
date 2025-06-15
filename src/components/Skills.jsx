@@ -17,7 +17,7 @@ import Redux from "../assets/Skills/redux.svg";
 import Multer from "../assets/Skills/multer.svg";
 import Pdf2Table from "../assets/Skills/pdf2table.svg";
 import ReactQuill from "../assets/Skills/reactquill.svg";
-import TinyMCE from "../assets/Skills/tinymce.svg";
+import TinyMCE from "../assets/Skills/tinymce.png";
 import OpenCV from "../assets/Skills/opencv.svg";
 import MediaPipe from "../assets/Skills/mediapipe.svg";
 import MySQL from "../assets/Skills/mysql.svg";
@@ -181,7 +181,7 @@ const Projects = () => {
       title: "C++",
       description:
         "Developed applications using C++ with object-oriented programming, STL, and data structure implementation.",
-      image: C++,
+      image: Cpp,
 
     },
  {
@@ -275,12 +275,15 @@ const Projects = () => {
             }}
           >
             <a href="#">
-              <img
-                className="w-full rounded-t-lg h-auto object-cover"
-                src={project.image}
-                alt=""
-                style={{ width: "100%", height: "auto" }}
-              />
+          <div className="flex justify-center items-start">
+  <img
+    className="rounded-t-lg h-auto object-cover"
+    src={project.image}
+    alt=""
+    style={{ width: "50%", height: "auto" }}
+  />
+</div>
+
             </a>
 
             <div
