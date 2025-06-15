@@ -1,7 +1,5 @@
 import React from "react";
-import noImage from "../assets/noImage.png";
-import volumeControl from "../assets/volumeControl.png";
-import eCom from "../assets/eCom.png";
+
 import Footer from "./Footer";
 import ReactJS from "../assets/Skills/reactjs.svg";
 import NodeJS from "../assets/Skills/nodejs.svg";
@@ -252,9 +250,9 @@ const Projects = () => {
             className="card"
             style={{
               position: "relative",
-              width: "350px",
-              height: "300px",
-              backgroundColor: "#000",
+              width: "250px",
+              height: "230px",
+              backgroundColor: "#fff",
               borderRadius: "10px",
               overflow: "hidden",
               boxShadow: "0 0 20px 5px rgba(8, 131, 149, 0.6)",

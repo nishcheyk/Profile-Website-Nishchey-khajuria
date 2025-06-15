@@ -35,6 +35,14 @@ const Projects = () => {
       ],
     },
     {
+      title: "Workout Tracker",
+      description:
+        "A full-stack MERN application to log workouts, track progress, and monitor fitness goals over time.",
+      image: noImage,
+      git: "https://github.com/nishcheyk/Workout",
+      technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
+    },
+    {
       title: "Thapar-links",
       description:
         "Full-stack web application to create public/private account (accept other) users, follow request posts, photos, shares, comments, etc.",
@@ -49,13 +57,53 @@ const Projects = () => {
       ],
     },
     {
+      title: "Railway Management System",
+      description:
+        "A full-stack application for managing train schedules, bookings, and user authentication for a railway system.",
+      image: noImage,
+      git: "https://github.com/nishcheyk/railwaymanagement",
+      technologies: ["Node.js", "Express.js", "MongoDB", "EJS", "Bootstrap"],
+    },
+    {
+      title: "Immigration Portal",
+      description:
+        "Web-based immigration management system to track applications, user roles, and verification steps.",
+      image: noImage,
+      git: "https://github.com/nishcheyk/immigration",
+      technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "JWT"],
+    },
+    {
+      title: "PDF Document Assignment Tool",
+      description:
+        "Automated tool to assign and extract content from PDF documents, useful in data processing and distribution.",
+      image: noImage,
+      git: "https://github.com/nishcheyk/pdf-Docassignment",
+      technologies: ["Node.js", "pdf2table", "Express.js", "Multer"],
+    },
+    {
+      title: "Data Science Projects",
+      description:
+        "A collection of data science and machine learning projects using Python for prediction, analysis, and visualization.",
+      image: noImage,
+      git: "https://github.com/nishcheyk/Data-science",
+      technologies: ["Python", "Pandas", "Scikit-learn", "Matplotlib", "Jupyter"],
+    },
+    {
       title: "Asankart",
       description:
         "Provides a platform for users to browse and purchase products online. Incorporates features such as product listings, search functionality, user authentication, and shopping cart management.",
       image: eCom,
-      git: "https://github.com/example/ecomm-project",
+      git: "https://github.com/nishcheyk/Asankart-Website",
       technologies: ["MongoDB", "Express.js", "React.js"],
     },
+    {
+  title: "Real-Time Chat App",
+  description:
+    "A real-time multi-user chat application using Socket.IO. Features include private messaging, online presence indicators, and group chats.",
+  image: noImage,  // Add a suitable image to your assets folder
+  git: "https://github.com/nishcheyk",
+  technologies: ["Node.js", "Express", "Socket.IO", "React", "CSS"],
+},
 
     {
       title: "Volume Control through Hand Gestures",
@@ -74,19 +122,20 @@ const Projects = () => {
       technologies: ["Java", "MySQL"],
     },
     {
-      title: "tic tak toe",
-      description: " for a Tic-Tac-Toe game that supports 3x3 and 4x4 grids. Players alternate turns, aiming to align three or four symbols (X or O) horizontally, vertically, or diagonally, with real-time updates and bug-free functionality.",
-      image: tictaktoe,
-      git: "https://github.com/nishcheyk/tick-tak-toe-VB.NET-pc.git",
-      technologies: ["VB.net"],
-    },
-    {
       title: "Blood Bank Management System",
       description:
         "An online system for managing blood bank operations, including donor registration, blood collection, and inventory management.",
       image: noImage,
       git: "https://github.com/nishcheyk/UI-UX-project/tree/main/Blood%20bank%20mangement%20sysytem",
       technologies: ["PHP", "MySQL"],
+    },
+    {
+      title: "tic tak toe",
+      description:
+        "For a Tic-Tac-Toe game that supports 3x3 and 4x4 grids. Players alternate turns, aiming to align three or four symbols (X or O) horizontally, vertically, or diagonally, with real-time updates and bug-free functionality.",
+      image: tictaktoe,
+      git: "https://github.com/nishcheyk/tick-tak-toe-VB.NET-pc.git",
+      technologies: ["VB.net"],
     },
   ];
 
@@ -105,7 +154,7 @@ const Projects = () => {
           flexWrap: "wrap",
           gap: "1.75rem",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "flex-start",
           padding: "8rem 1rem 1rem",
         }}
       >
@@ -116,17 +165,19 @@ const Projects = () => {
             style={{
               position: "relative",
               width: "350px",
-              height: "300px",
+              height: "300px", // fixed card height
               backgroundColor: "#000",
               borderRadius: "10px",
               overflow: "hidden",
               boxShadow: "0 0 20px 5px rgba(8, 131, 149, 0.6)",
-              transition: "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+              transition:
+                "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
               margin: "10px",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "flex-start",
+              color: "#fff",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.querySelector(".card__content").style.transform =
@@ -139,13 +190,36 @@ const Projects = () => {
           >
             <a href="#">
               <img
-                className="w-full rounded-t-lg h-auto object-cover"
+                className="project-image"
                 src={project.image}
-                alt=""
-                style={{ width: "100%", height: "auto" }}
+                alt={project.title}
+                style={{
+                  width: "100%",
+                  height: "220px", // fixed image height
+                  objectFit: "cover",
+                  borderTopLeftRadius: "10px",
+                  borderTopRightRadius: "10px",
+                }}
               />
             </a>
 
+            {/* Title always visible */}
+            <h5
+              className="card__title"
+              style={{
+                margin: "15px 0 10px",
+                fontSize: "20px",
+                fontWeight: "700",
+                textAlign: "center",
+                minHeight: "56px", // reserve vertical space for consistent alignment
+                lineHeight: "1.2",
+                padding: "0 10px",
+              }}
+            >
+              {project.title}
+            </h5>
+
+            {/* Hover content */}
             <div
               className="card__content"
               style={{
@@ -156,40 +230,28 @@ const Projects = () => {
                 height: "100%",
                 padding: "20px",
                 boxSizing: "border-box",
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
                 transform: "rotateX(-90deg)",
                 transformOrigin: "bottom",
-                transition: "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                transition:
+                  "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "flex-start", // Adjusted to start from the top
+                justifyContent: "flex-start",
                 textAlign: "center",
-                overflowY: "auto", // Enable scroll within content
-                scrollbarWidth: "none", // Hide scrollbar for Firefox
-                msOverflowStyle: "none", // Hide scrollbar for IE/Edge
+                overflowY: "auto",
+                borderRadius: "10px",
+                color: "#fff",
               }}
             >
-              <a href="#">
-                <h5
-                  className="card__title"
-                  style={{
-                    margin: "0",
-                    fontSize: "20px",
-                    color: "#fff",
-                    fontWeight: "700",
-                  }}
-                >
-                  {project.title}
-                </h5>
-              </a>
               <p
                 className="card__description"
                 style={{
                   margin: "10px 0 10px",
-                  fontSize: "12px",
-                  color: "#fff",
+                  fontSize: "13px",
                   lineHeight: "1.4",
+                  flexGrow: 1,
                 }}
               >
                 {project.description}
@@ -198,19 +260,21 @@ const Projects = () => {
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
-                  gap: "5px",
+                  gap: "6px",
+                  justifyContent: "center",
                   marginTop: "10px",
                 }}
               >
-                {project.technologies.map((tech, index) => (
+                {project.technologies.map((tech, idx) => (
                   <span
-                    key={index}
+                    key={idx}
                     style={{
-                      padding: "5px 10px",
-                      borderRadius: "8px",
+                      padding: "6px 12px",
+                      borderRadius: "12px",
                       background: "#777",
                       color: "white",
                       fontSize: "12px",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     {tech}
@@ -221,8 +285,8 @@ const Projects = () => {
                 href={project.git}
                 style={{
                   display: "inline-block",
-                  padding: "10px 15px",
-                  marginTop: "10px",
+                  padding: "10px 20px",
+                  marginTop: "15px",
                   borderRadius: "8px",
                   backgroundColor: "#333",
                   color: "#fff",
