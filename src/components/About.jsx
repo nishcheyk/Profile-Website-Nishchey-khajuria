@@ -41,13 +41,13 @@ const About = () => {
               <br/>
             </p>
             <ButtonLink
-              url="https://drive.google.com/file/d/1GROxq_-IPNylTTZB78oNDinDdR0Bh8-h/view?usp=sharing"
+              url="https://drive.google.com/file/d/1rPivehDxn6zDD4YbL3lgKqTdprkja46Q/view?usp=sharing"
               text="View Resume →"
               padding={`p-4`}
             />
           </div>
           <div className="mt-20 flex justify-center flex-wrap gap-7">
-           
+
           </div>
         </div>
       </div>
