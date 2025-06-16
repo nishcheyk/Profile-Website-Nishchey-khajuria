@@ -83,7 +83,7 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-              <Link to="/about" onClick={closeMobileMenu} className="mx-4">
+              <Link to="/skills" onClick={closeMobileMenu} className="mx-4">
             Skills
           </Link>
             <li>
