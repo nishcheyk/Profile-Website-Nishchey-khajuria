@@ -83,6 +83,9 @@ const Navbar = () => {
                 About
               </Link>
             </li>
+              <Link to="/about" onClick={closeMobileMenu} className="mx-4">
+            Skills
+          </Link>
             <li>
               <Link to="/projects" onClick={closeMobileMenu} className="mx-4">
                 Projects
