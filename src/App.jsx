@@ -1,4 +1,4 @@
-import { BrowserRouter ,Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Footer from './components/Footer';
@@ -8,7 +8,6 @@ import Contact from './components/Contact';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 
-// App.js (cleaned)
 const App = () => {
   return (
     <>
@@ -25,6 +24,5 @@ const App = () => {
     </>
   );
 };
-
 
 export default App;
