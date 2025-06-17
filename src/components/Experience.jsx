@@ -26,7 +26,7 @@ const Experience = () => {
             contentStyle={{ background: "#1d1836", color: "#fff" }}
             contentArrowStyle={{ borderRight: "7px solid  #232631" }}
             date={experience.duration}
-            iconStyle={{ background: "#fff" }}
+            iconStyle={{ background: "#2C3539" }}
             icon={
               <a
                 className="flex justify-center items-center w-full h-full"
