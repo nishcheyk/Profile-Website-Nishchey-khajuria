@@ -276,38 +276,44 @@ export const projects = [
 ];
 
 export const skills = [
-  { title: "ReactJS", image: ReactJS, category: "Frontend", alt: "React.js framework" },
-  { title: "Next.js", image: NextJS, category: "Frontend", alt: "Next.js framework" },
-  { title: "HTML5", image: HTML, category: "Frontend", alt: "HTML5 semantic markup" },
-  { title: "CSS3", image: CSS, category: "Frontend", alt: "CSS3 styling" },
-  { title: "Tailwind CSS", image: TailwindCSS, category: "Frontend", alt: "Tailwind CSS utility-first framework" },
-  { title: "Redux", image: Redux, category: "Frontend", alt: "Redux state management" },
-  { title: "JQuery", image: JQuery, category: "Frontend", alt: "jQuery library" },
-  { title: "Axios", image: Axios, category: "Frontend", alt: "Axios HTTP client" },
-  { title: "Node.js", image: NodeJS, category: "Backend", alt: "Node.js runtime" },
-  { title: "Express.js", image: ExpressJS, category: "Backend", alt: "Express.js framework" },
-  { title: "Django", image: Django, category: "Backend", alt: "Django framework" },
-  { title: "FastAPI", image: FastAPI, category: "Backend", alt: "FastAPI framework" },
+  // 🔥 AI & Data — most in-demand in 2025
   { title: "OpenAI API", image: OpenAI, category: "AI & Data", alt: "OpenAI API integration" },
-  { title: "Hugging Face", image: HuggingFace, category: "AI & Data", alt: "Hugging Face models" },
+  { title: "FastAPI", image: FastAPI, category: "Backend", alt: "FastAPI framework" },
   { title: "Qdrant", image: Qdrant, category: "AI & Data", alt: "Qdrant vector database" },
+  { title: "Hugging Face", image: HuggingFace, category: "AI & Data", alt: "Hugging Face models" },
   { title: "Redis", image: Redis, category: "AI & Data", alt: "Redis caching" },
   { title: "OpenCV", image: OpenCV, category: "AI & Data", alt: "OpenCV computer vision" },
   { title: "MediaPipe", image: MediaPipe, category: "AI & Data", alt: "MediaPipe ML framework" },
-  { title: "MySQL", image: MySQL, category: "Databases", alt: "MySQL database" },
-  { title: "MongoDB", image: MongoDB, category: "Databases", alt: "MongoDB NoSQL database" },
+  { title: "Docling", image: "https://cdn.simpleicons.org/probot/000000", category: "AI & Data", alt: "Docling library" },
+  { title: "Unstructured", image: "https://cdn.simpleicons.org/probot/000000", category: "AI & Data", alt: "Unstructured data processing" },
+  // 🚀 Core Languages
   { title: "Python", image: Python, category: "Languages", alt: "Python programming language" },
   { title: "JavaScript", image: JavaScript, category: "Languages", alt: "JavaScript programming language" },
   { title: "C/C++", image: Cplusplus, category: "Languages", alt: "C++ programming language" },
+  // ⚙️ Backend
+  { title: "Node.js", image: NodeJS, category: "Backend", alt: "Node.js runtime" },
+  { title: "Express.js", image: ExpressJS, category: "Backend", alt: "Express.js framework" },
+  { title: "Django", image: Django, category: "Backend", alt: "Django framework" },
+  // 🎨 Frontend
+  { title: "ReactJS", image: ReactJS, category: "Frontend", alt: "React.js framework" },
+  { title: "Next.js", image: NextJS, category: "Frontend", alt: "Next.js framework" },
+  { title: "Tailwind CSS", image: TailwindCSS, category: "Frontend", alt: "Tailwind CSS utility-first framework" },
+  { title: "Redux", image: Redux, category: "Frontend", alt: "Redux state management" },
+  { title: "HTML5", image: HTML, category: "Frontend", alt: "HTML5 semantic markup" },
+  { title: "CSS3", image: CSS, category: "Frontend", alt: "CSS3 styling" },
+  { title: "Axios", image: Axios, category: "Frontend", alt: "Axios HTTP client" },
+  { title: "JQuery", image: JQuery, category: "Frontend", alt: "jQuery library" },
+  // 🗄️ Databases
+  { title: "MongoDB", image: MongoDB, category: "Databases", alt: "MongoDB NoSQL database" },
+  { title: "MySQL", image: MySQL, category: "Databases", alt: "MySQL database" },
+  // 🛠️ Tools
+  { title: "GitHub", image: GitHub, category: "Tools", alt: "GitHub version control" },
   { title: "Postman", image: Postman, category: "Tools", alt: "Postman API testing" },
   { title: "VS Code", image: VSCode, category: "Tools", alt: "VS Code editor" },
-  { title: "GitHub", image: GitHub, category: "Tools", alt: "GitHub version control" },
   { title: "Vercel", image: Vercel, category: "Tools", alt: "Vercel deployment" },
   { title: "Netlify", image: Netlify, category: "Tools", alt: "Netlify deployment" },
   { title: "Render", image: Render, category: "Tools", alt: "Render hosting platform" },
   { title: "JWT", image: JWT, category: "Tools", alt: "JWT authentication" },
-  { title: "Docling", image: "https://cdn.simpleicons.org/probot/000000", category: "AI & Data", alt: "Docling library" },
-  { title: "Unstructured", image: "https://cdn.simpleicons.org/probot/000000", category: "AI & Data", alt: "Unstructured data processing" },
 ];
 
 export const EMAIL_JS_SERVICE_ID = 'service_90wb9t5';
