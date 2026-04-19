@@ -16,7 +16,7 @@ const Experience = () => {
       <div className="pt-12 sm:px-16">
 
         <h2 className="text-4xl sm:text-5xl font-extrabold mt-8 ">
-        MY JOURNEY SO FAR.
+          MY JOURNEY SO FAR.
         </h2>
       </div>
       <VerticalTimeline className="mt-9">
@@ -32,32 +32,38 @@ const Experience = () => {
                 className="flex justify-center items-center w-full h-full"
                 href={experience.url}
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   src={experience.logo}
                   alt={experience.company}
-                  className="w-[60%] h-[60%] object-contain"
+                  className="w-[80%] h-[80%] object-contain rounded-full shadow-lg"
+                  onError={(e) => {
+                    e.target.src = "https://cdn.simpleicons.org/react";
+                  }}
                 />
               </a>
             }
           >
             <div>
-              <h3 className="text-white text-[24px] font-bold">
+              <h3 className="text-white text-[24px] font-bold tracking-tight">
                 {experience.role}
               </h3>
-              <p
-                className="text-secondary text-[16px] font-semibold"
-                style={{ margin: 0 }}
+              <a
+                href={experience.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#FB6D48] text-[18px] font-bold hover:underline"
               >
                 {experience.company}
-              </p>
+              </a>
             </div>
 
-            <ul className="mt-5 list-disc ml-5 space-y-2">
-              {experience.points.map((point, index) => (
+            <ul className="mt-6 list-disc ml-5 space-y-3">
+              {experience.points.map((point, idx) => (
                 <li
-                  key={`experience-point-${index}`}
-                  className="text-white-100 text-[14px] pl-1 tracking-wider"
+                  key={`experience-point-${idx}`}
+                  className="text-white/80 text-[14px] pl-1 tracking-wide leading-relaxed"
                 >
                   {point}
                 </li>
@@ -66,7 +72,6 @@ const Experience = () => {
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
-      <Footer />
     </div>
   );
 };

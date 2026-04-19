@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { name } from '../constants';
+import { name, summary } from '../constants';
 import { motion } from "framer-motion";
 import Background from './Background';
 import Footer from './Footer';
@@ -19,9 +19,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='area relative z-0 bg-black w-screen h-screen'>
+    <div className='relative z-0 min-h-[calc(100vh-100px)]'>
       <ul className="circles">
-        <Background/>
+        <Background />
         <li></li>
         <li></li>
         <li></li>
@@ -40,13 +40,11 @@ const Home = () => {
         {/* Add more li items as needed */}
       </ul>
       <div className='hero relative h-[calc(93vh)] overflow-hidden flex justify-center items-center text-white' id='hero'>
-        <div className='pt-4 h-48 backdrop-blur-sm rounded-3xl text-center'>
+        <div className='pt-4 h-48 rounded-3xl text-center'>
           <h1 className='text-6xl sm:text-7xl font-extrabold mt-2'>Hi, I'm&nbsp;<span className='text-[#FB6D48] font-extrabold'>{text}</span></h1>
-          <p className='mt-3 text-xl'>A full-stack developer and 4th-year COE student at TIET with a Diploma in CSE from</p>
-          <p> Govt Polytechnic Jammu, passionate about building dynamic web apps.</p>
+          <p className='mt-3 text-xl max-w-4xl mx-auto'>{summary}</p>
         </div>
       </div>
-      <Footer/> {/* Render Footer component after other content */}
     </div>
   );
 }

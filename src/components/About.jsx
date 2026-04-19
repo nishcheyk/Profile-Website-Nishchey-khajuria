@@ -1,20 +1,10 @@
 import React from "react";
+import { summary } from "../constants";
 import "../App.css";
 import ButtonLink from "./ButtonLink";
 import Footer from "./Footer";
+import AnimatedButton from "./AnimatedButton";
 
-const ServiceCard = () => (
-  <div className="sm:w-[250px] w-full">
-    <div className="w-full green-pink-gradient p-[1px] rounded-[20px]">
-      <div
-        className="rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-        style={{ background: "#151030" }}
-      >
-        <h3 className="text-white text-[20px] font-bold text-center"></h3>
-      </div>
-    </div>
-  </div>
-);
 
 const About = () => {
   return (
@@ -33,25 +23,33 @@ const About = () => {
               Introduction
             </h2>
             <p className="mt-3 mb-6 text-[17px] max-w-3xl leading-[30px]">
-            👨‍💻 Hey there! I'm Nishchey Khajuria, your friendly neighborhood full-stack developer with a passion for crafting sleek, responsive web apps that actually work (no broken links, promise!). My tech adventure kicked off with a geeky curiosity about what makes things tick behind the scenes—and now, I get to build them! 🚀
-<br/><br/><br/>
-            When I’m not glued to my screen debugging (or celebrating a successful deploy), you’ll catch me geeking out over new tech, diving into spicy tech blogs, or testing the limits of cool frameworks and libraries. Got a wild idea? Let’s team up and make some tech magic happen! 🌟
-              <br/>
-              <br/>
-              <br/>
+              {summary}
             </p>
-            <ButtonLink
-              url="https://drive.google.com/file/d/1rPivehDxn6zDD4YbL3lgKqTdprkja46Q/view?usp=sharing"
-              text="View Resume →"
-              padding={`p-4`}
-            />
+            <div className="flex justify-center mt-8">
+              <AnimatedButton
+                defaultText="View Resume"
+                defaultIcon={
+                  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g style={{ filter: "url(#about-shadow)" }}>
+                      <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="black"></path>
+                    </g>
+                    <defs>
+                      <filter id="about-shadow">
+                        <feDropShadow dx="0" dy="1" stdDeviation="0.6" floodOpacity="0.5" />
+                      </filter>
+                    </defs>
+                  </svg>
+                }
+                onClick={() => window.open('https://drive.google.com/file/d/10gwidHSKJLRRIazpPLtXhlfWXijaIz_S/view?usp=sharing', '_blank')}
+                style={{ minWidth: "220px" }}
+              />
+            </div>
           </div>
           <div className="mt-20 flex justify-center flex-wrap gap-7">
 
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

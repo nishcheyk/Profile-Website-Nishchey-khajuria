@@ -1,4 +1,5 @@
 import React from "react";
+import { summary } from "../constants";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -37,9 +38,7 @@ const ContactCard = () => {
           <div className="content">
             <span className="name">Nishchey Khajuria</span>
             <span className="about-me">
-              A full-stack developer and 4nd-year COE student at TIET with a
-              Diploma in CSE from Govt Polytechnic Jammu, passionate about
-              building dynamic web apps
+              {summary}
             </span>
           </div>
           <div className="bottom-bottom">

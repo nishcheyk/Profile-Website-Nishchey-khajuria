@@ -11,13 +11,14 @@ const Footer = () => {
     bottom: "0",
     left: "0",
     width: "100%",
-    backgroundColor: "rgba(30, 41, 59, 0.5)",
-    height: "60px",
+    backgroundColor: "rgba(23, 21, 59, 0.5)", // Matches Navbar color & transparency
+    backdropFilter: "blur(4px)", // Optional glass effect for consistency
+    height: "70px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0 20px",
-    boxShadow: "0 -2px 10px rgba(0, 0, 0, 0.1)",
+    zIndex: "50",
   };
 
   const iconContainerStyle = {
@@ -43,7 +44,7 @@ const Footer = () => {
 
   const tooltipStyle = {
     position: "absolute",
-    top: "-60px",
+    top: "-50px",
     left: "50%",
     transform: "translateX(-40%)",
     fontSize: "14px",
@@ -83,7 +84,7 @@ const Footer = () => {
           onMouseLeave={handleMouseLeave}
         >
           <a
-            href="mailto:nishcheycaptuer2014@gmail.com"
+            href="mailto:nishcheykhajuria@gmail.com"
             style={{ textDecoration: "none", color: "#fff" }}
           >
             <FiMail />
