@@ -1,6 +1,6 @@
 // Skill Icons (Verifiably Stable CDN Strings)
 const HTML = "https://cdn.simpleicons.org/html5/E34F26";
-const CSS = "https://cdn.simpleicons.org/css3/1572B6";
+const CSS = "https://cdn.simpleicons.org/css/1572B6";
 const JavaScript = "https://cdn.simpleicons.org/javascript/F7DF1E";
 const ReactJS = "https://cdn.simpleicons.org/react/61DAFB";
 const NextJS = "https://cdn.simpleicons.org/nextdotjs/000000";
@@ -111,6 +111,17 @@ export const experiences = [
       "Identified and removed unused code to enhance load times and overall maintainability."
     ],
     url: "https://wepegasus.com/",
+  }, {
+    role: "B.Tech — Computer Engineering",
+    company: "Thapar Institute of Engineering & Technology",
+    duration: "2022 - 2025",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Thapar_University_%28emblem%29.png/220px-Thapar_University_%28emblem%29.png",
+    points: [
+      "Pursuing B.Tech in Computer Engineering at one of India's premier technical institutes.",
+      "Relevant coursework: Data Structures, Algorithms, DBMS, Operating Systems, Computer Networks, and Software Engineering.",
+      "Active participant in coding competitions and full-stack development projects.",
+    ],
+    url: "https://www.thapar.edu/",
   },
   {
     role: "Full Stack Developer Trainer",
@@ -133,6 +144,18 @@ export const experiences = [
       "Collaborated in Agile teams and used GitHub for version control."
     ],
     url: "https://xebia.com/",
+  },
+  {
+    role: "Diploma — Computer Engineering",
+    company: "Govt Polytechnic Jammu, J&K",
+    duration: "2019 - June 2022",
+    logo: "https://cdn.simpleicons.org/academia/000000",
+    points: [
+      "Completed Diploma in Computer Engineering from Govt Polytechnic Jammu, Jammu & Kashmir.",
+      "Gained practical knowledge in programming fundamentals, networking, and hardware systems.",
+      "Developed early-stage web and software projects during the program.",
+    ],
+    url: "https://github.com/nishcheyk",
   },
 ];
 
@@ -283,8 +306,8 @@ export const skills = [
   { title: "Netlify", image: Netlify, category: "Tools", alt: "Netlify deployment" },
   { title: "Render", image: Render, category: "Tools", alt: "Render hosting platform" },
   { title: "JWT", image: JWT, category: "Tools", alt: "JWT authentication" },
-  { title: "Docling", image: "https://cdn.simpleicons.org/probot/ffffff", category: "AI & Data", alt: "Docling library" },
-  { title: "Unstructured", image: "https://cdn.simpleicons.org/probot/ffffff", category: "AI & Data", alt: "Unstructured data processing" },
+  { title: "Docling", image: "https://cdn.simpleicons.org/probot/000000", category: "AI & Data", alt: "Docling library" },
+  { title: "Unstructured", image: "https://cdn.simpleicons.org/probot/000000", category: "AI & Data", alt: "Unstructured data processing" },
 ];
 
 export const EMAIL_JS_SERVICE_ID = 'service_90wb9t5';

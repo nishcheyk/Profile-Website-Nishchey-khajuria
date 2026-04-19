@@ -5,12 +5,12 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { experiences } from "../constants";
-import Footer from "./Footer";
+
 
 const Experience = () => {
   return (
     <div
-      className="experience bg-black w-screen h-screen text-white pt-4 pt-16 overflow-x-hidden"
+      className="experience bg-black w-screen min-h-screen text-white pt-4 pt-16 pb-24 overflow-x-hidden"
       id="experience"
     >
       <div className="pt-12 sm:px-16">
@@ -37,9 +37,10 @@ const Experience = () => {
                 <img
                   src={experience.logo}
                   alt={experience.company}
-                  className="w-[80%] h-[80%] object-contain rounded-full shadow-lg"
+                  className="w-[70%] h-[70%] object-contain"
+                  style={{ background: "white", borderRadius: "50%", padding: "2px", boxSizing: "border-box" }}
                   onError={(e) => {
-                    e.target.src = "https://cdn.simpleicons.org/react";
+                    e.target.src = "https://cdn.simpleicons.org/probot/000000";
                   }}
                 />
               </a>

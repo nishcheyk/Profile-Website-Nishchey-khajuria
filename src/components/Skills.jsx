@@ -1,6 +1,6 @@
 import React from "react";
 import { skills } from "../constants";
-import Footer from "./Footer";
+
 
 const Skills = () => {
   return (
@@ -57,7 +57,7 @@ const Skills = () => {
                 loading="lazy"
                 style={{ width: "50%", height: "auto" }}
                 onError={(e) => {
-                    e.target.src = "https://cdn.simpleicons.org/probot/ffffff"; // Replaced problematic react fallback with a highly stable probot tag
+                    e.target.src = "https://cdn.simpleicons.org/probot/000000";
                 }}
               />
 
