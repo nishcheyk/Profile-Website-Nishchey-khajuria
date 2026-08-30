@@ -1,16 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SiStripe, SiSlack, SiAmazonaws, SiMongodb, SiTwilio, SiGithub } from 'react-icons/si';
 import { SaasSection, SaasSectionHeading } from '../../../components/ui/SaasSection';
+import { skills } from '../../../data/constants';
 
-const integrations = [
-  { icon: <SiStripe size={40} />, name: 'Stripe', color: 'text-indigo-500' },
-  { icon: <SiSlack size={40} />, name: 'Slack', color: 'text-rose-500' },
-  { icon: <SiAmazonaws size={40} />, name: 'AWS', color: 'text-amber-500' },
-  { icon: <SiMongodb size={40} />, name: 'MongoDB', color: 'text-emerald-500' },
-  { icon: <SiTwilio size={40} />, name: 'Twilio', color: 'text-red-500' },
-  { icon: <SiGithub size={40} />, name: 'GitHub', color: 'text-slate-800' }
-];
+// We take a subset of top skills to display as SaaS integrations
+const integrations = skills.slice(0, 8).map(s => ({
+  icon: <img src={s.image} alt={s.alt} className="w-10 h-10 object-contain grayscale opacity-80" />,
+  name: s.title,
+  color: 'text-slate-500' // Generic color for the orbit line styling
+}));
 
 export const Integrations = () => {
   return (

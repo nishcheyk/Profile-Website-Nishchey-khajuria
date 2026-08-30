@@ -5,31 +5,34 @@ import { SaasSection, SaasSectionHeading } from '../../../components/ui/SaasSect
 
 const plans = [
   {
-    name: "Starter",
-    priceMonthly: 49,
-    priceAnnual: 39,
-    desc: "For small projects and individual developers.",
-    features: ["1 Project", "Basic Analytics", "Community Support", "1GB Storage"],
-    buttonText: "Start Free Trial",
-    popular: false
+    name: "Consulting",
+    priceMonthly: 150,
+    priceAnnual: 120,
+    desc: "Hourly rate for architecture consulting & debugging.",
+    features: ["System Architecture", "Code Review", "AI Integration Strategy", "Performance Audit"],
+    buttonText: "Book Session",
+    popular: false,
+    link: "mailto:nishcheykhajuria@gmail.com"
   },
   {
-    name: "Pro",
-    priceMonthly: 99,
-    priceAnnual: 79,
-    desc: "For professional teams scaling their infrastructure.",
-    features: ["Unlimited Projects", "Advanced Analytics", "Priority 24/7 Support", "100GB Storage", "Custom Domains"],
-    buttonText: "Upgrade to Pro",
-    popular: true
+    name: "Project Build",
+    priceMonthly: 4999,
+    priceAnnual: 3999,
+    desc: "End-to-end development of MVPs and scalable platforms.",
+    features: ["Full Stack Development", "Custom UI/UX", "Database Design", "Cloud Deployment", "30-Day Support"],
+    buttonText: "Request Quote",
+    popular: true,
+    link: "mailto:nishcheykhajuria@gmail.com"
   },
   {
-    name: "Enterprise",
-    priceMonthly: 249,
-    priceAnnual: 199,
-    desc: "For large organizations with complex requirements.",
-    features: ["Everything in Pro", "Dedicated Account Manager", "SSO/SAML", "Unlimited Storage", "SLA Guarantee"],
-    buttonText: "Contact Sales",
-    popular: false
+    name: "Retainer",
+    priceMonthly: 3000,
+    priceAnnual: 2500,
+    desc: "Ongoing development and priority maintenance.",
+    features: ["Dedicated Hours", "Priority Response", "Continuous Integration", "Feature Expansion", "Infrastructure Scaling"],
+    buttonText: "Hire Me",
+    popular: false,
+    link: "mailto:nishcheykhajuria@gmail.com"
   }
 ];
 

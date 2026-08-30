@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { motion, Reorder } from 'framer-motion';
 import { springStructural } from '../../../animations';
 
+import { projects, experiences } from '../../../data/constants';
+
 const INITIAL_METRICS = [
-  { label: 'Uptime', value: '99.99%', trend: '+0.01%' },
-  { label: 'Latency', value: '24ms', trend: '-2ms' },
-  { label: 'Active Users', value: '1,204', trend: '+12%' }
+  { label: 'Projects Shipped', value: projects.length.toString(), trend: 'Active' },
+  { label: 'Roles Held', value: experiences.length.toString(), trend: 'Growing' },
+  { label: 'System Uptime', value: '99.9%', trend: 'Stable' }
 ];
 
 export default function HeroDashboard() {
