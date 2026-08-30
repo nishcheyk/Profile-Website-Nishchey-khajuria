@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Reorder } from 'framer-motion';
 
 export interface Tab {
   id: string;
@@ -9,21 +9,28 @@ export interface Tab {
 
 interface TabBarProps {
   tabs: Tab[];
+  onReorder: (tabs: Tab[]) => void;
   activeTab: string;
   onChange: (id: string) => void;
 }
 
-export default function TabBar({ tabs, activeTab, onChange }: TabBarProps) {
+export default function TabBar({ tabs, onReorder, activeTab, onChange }: TabBarProps) {
   return (
-    <div className="flex items-end h-12 bg-background border-b border-surfaceBorder px-4 shrink-0 overflow-x-auto no-scrollbar font-mono text-sm z-10 relative">
+    <Reorder.Group 
+      axis="x" 
+      values={tabs} 
+      onReorder={onReorder}
+      className="flex items-end h-12 bg-background border-b border-surfaceBorder px-2 md:px-4 flex-1 overflow-x-auto no-scrollbar font-mono text-sm z-10 relative"
+    >
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
         return (
-          <button
+          <Reorder.Item
             key={tab.id}
-            onClick={() => onChange(tab.id)}
-            className={`relative flex items-center gap-2 px-6 py-2.5 outline-none transition-colors duration-200 ${
-              isActive ? 'text-accent' : 'text-secondary hover:text-primary'
+            value={tab}
+            onPointerDown={() => onChange(tab.id)}
+            className={`relative flex items-center gap-2 px-6 py-2.5 outline-none transition-colors duration-200 cursor-pointer ${
+              isActive ? 'text-accent bg-surfaceHighlight/50' : 'text-secondary hover:text-primary hover:bg-surfaceHighlight/30'
             }`}
           >
             {tab.icon}
@@ -35,9 +42,9 @@ export default function TabBar({ tabs, activeTab, onChange }: TabBarProps) {
                 transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
               />
             )}
-          </button>
+          </Reorder.Item>
         );
       })}
-    </div>
+    </Reorder.Group>
   );
 }

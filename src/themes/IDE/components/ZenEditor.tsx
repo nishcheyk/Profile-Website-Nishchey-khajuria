@@ -14,19 +14,19 @@ import { useVFS } from '../../../context/VFSContext';
 import { useKeyDown } from '../../../hooks/useKeyDown';
 
 export const EDITOR_TABS = [
-  { id: 'constants.ts', label: 'constants.ts' },
-  { id: 'architecture', label: 'Architecture.tsx' },
-  { id: 'secrets', label: 'Secrets.tsx' },
   { id: 'home', label: 'Home.tsx' },
   { id: 'projects', label: 'Projects.tsx' },
   { id: 'experience', label: 'Experience.tsx' },
   { id: 'skills', label: 'Skills.tsx' },
   { id: 'contact', label: 'Contact.tsx' },
+  { id: 'architecture', label: 'Architecture.tsx' },
+  { id: 'secrets', label: 'Secrets.tsx' },
 ];
 
 export default function ZenEditor({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (id: string) => void }) {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'preview' | 'code'>('preview');
+  const [tabs, setTabs] = useState(EDITOR_TABS);
   const { getFile, updateFile } = useVFS();
 
   // Sync Scroll Ref
@@ -82,7 +82,8 @@ export default function ZenEditor({ activeTab, setActiveTab }: { activeTab: stri
       />
 
       <TopNav 
-        tabs={EDITOR_TABS} 
+        tabs={tabs} 
+        onReorder={setTabs}
         activeTab={activeTab} 
         onTabChange={setActiveTab} 
         viewMode={viewMode}

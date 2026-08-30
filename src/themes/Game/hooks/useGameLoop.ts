@@ -24,26 +24,33 @@ export const useGameLoop = (speed = 5) => {
 
     const gameLoop = () => {
       const loopSpeed = speed;
-      let dx = joystickRef.current.dx * loopSpeed;
-      let dy = joystickRef.current.dy * loopSpeed;
+      let rawDx = joystickRef.current.dx * loopSpeed;
+      let rawDy = joystickRef.current.dy * loopSpeed;
       
-      if (keys.current['w'] || keys.current['arrowup']) dy -= loopSpeed;
-      if (keys.current['s'] || keys.current['arrowdown']) dy += loopSpeed;
-      if (keys.current['a'] || keys.current['arrowleft']) dx -= loopSpeed;
-      if (keys.current['d'] || keys.current['arrowright']) dx += loopSpeed;
+      if (keys.current['w'] || keys.current['arrowup']) rawDy -= loopSpeed;
+      if (keys.current['s'] || keys.current['arrowdown']) rawDy += loopSpeed;
+      if (keys.current['a'] || keys.current['arrowleft']) rawDx -= loopSpeed;
+      if (keys.current['d'] || keys.current['arrowright']) rawDx += loopSpeed;
 
-      if (Math.abs(dx) > Math.abs(dy)) {
-        setDirection(dx > 0 ? 'RIGHT' : 'LEFT');
-      } else if (Math.abs(dy) > Math.abs(dx)) {
-        setDirection(dy > 0 ? 'DOWN' : 'UP');
+      if (Math.abs(rawDx) > Math.abs(rawDy)) {
+        setDirection(rawDx > 0 ? 'RIGHT' : 'LEFT');
+      } else if (Math.abs(rawDy) > Math.abs(rawDx)) {
+        setDirection(rawDy > 0 ? 'DOWN' : 'UP');
       }
 
-      if (dx !== 0 || dy !== 0) {
-        // Normalise diagonal speed
-        if (dx !== 0 && dy !== 0) {
-          dx *= 0.7071;
-          dy *= 0.7071;
+      if (rawDx !== 0 || rawDy !== 0) {
+        // Normalise diagonal speed for input
+        if (rawDx !== 0 && rawDy !== 0) {
+          rawDx *= 0.7071;
+          rawDy *= 0.7071;
         }
+
+        // Remap to isometric coordinates
+        // For a rotateZ(-45deg) map:
+        // Screen Right (+dx) -> Map (+x, -y)
+        // Screen Down (+dy) -> Map (+x, +y)
+        const dx = rawDx + rawDy;
+        const dy = -rawDx + rawDy;
         
         posRef.current = {
           x: posRef.current.x + dx,
