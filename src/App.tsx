@@ -57,6 +57,7 @@ function App() {
     seqRef.current = [...seqRef.current, e.key].slice(-KONAMI.length);
     if (seqRef.current.join(',') === KONAMI.join(',')) {
       setKonamiActive(true);
+      new Audio('/fahhh.mp3').play().catch(() => {});
       setTimeout(() => setKonamiActive(false), 4000);
     }
   });
