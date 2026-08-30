@@ -56,7 +56,7 @@ export default function TerminalTheme() {
           output = 'COMMANDS:\n  help      - Show this message\n  whoami    - Display bio\n  ls        - List directory contents\n  cd <dir>  - Change directory\n  cat <file>- Read file contents\n  clear     - Clear terminal\n  sudo      - Superuser do\n  exit      - Return to Multiverse';
           break;
         case 'whoami':
-          output = 'NISHCHEY KHAJURIA\nFull Stack Developer / UI Engineer\n\nSkills: React, Next.js, Node.js, Python, FastAPI';
+          output = `${name.toUpperCase()}\n${summary}\n\nType 'cat resume.txt' for experience.`;
           break;
         case 'ls':
           const currentDirObj = fileSystem[currentPath];
