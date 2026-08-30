@@ -12,6 +12,7 @@ const DESKTOP_ICONS = [
   { id: 'terminal', title: 'The Hacker', desc: 'A retro CLI environment.', Icon: VscTerminalLinux, color: 'text-green-400', path: '/terminal' },
   { id: 'game', title: 'The Player', desc: 'A 2D interactive RPG map.', Icon: VscPlay, color: 'text-yellow-400', path: '/game' },
   { id: 'cinematic', title: 'The Director', desc: 'Brutalist cinematic scroll.', Icon: VscDeviceCameraVideo, color: 'text-orange-400', path: '/cinematic' },
+  { id: 'interview', title: 'The Interview', desc: 'Interactive AI Simulator.', Icon: VscDeviceCameraVideo, color: 'text-cyan-400', path: '/interview' },
   { id: 'secret', title: 'The Architect', desc: 'System administrator.', Icon: VscKey, color: 'text-slate-400', path: '#secret' },
 ];
 
@@ -25,6 +26,7 @@ const MENUS = (toast: ReturnType<typeof useToast>) => ({
     { label: 'The Product (SaaS)', action: () => window.location.hash = '/saas' },
     { label: 'The Hacker (Terminal)', action: () => window.location.hash = '/terminal' },
     { label: 'The Player (Game)', action: () => window.location.hash = '/game' },
+    { label: 'The Interview (AI)', action: () => window.location.hash = '/interview' },
     { label: 'The Director (Cinematic)', action: () => window.location.hash = '/cinematic' },
     { label: '', separator: true },
     { label: 'GitHub', action: () => window.open('https://github.com/nishcheyk', '_blank') },
