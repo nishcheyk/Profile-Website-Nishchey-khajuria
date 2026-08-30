@@ -5,11 +5,14 @@ const srcDir = path.join(__dirname, '../src');
 const outputRegistryPath = path.join(__dirname, '../src/themes/IDE/sourceRegistry.json');
 
 const filesToRead = {
-  'App.tsx': 'App.tsx',
-  'data.json': 'data.json',
-  'ZenEditor.tsx': 'themes/IDE/ZenEditor.tsx',
-  'HeroDashboard.tsx': 'themes/SaaS/components/HeroDashboard.tsx',
-  'TerminalTheme.tsx': 'themes/Terminal/index.tsx'
+  'constants.ts': 'data/constants.ts',
+  'architecture': 'components/sections/Architecture.tsx',
+  'secrets': 'components/sections/Secrets.tsx',
+  'home': 'components/sections/Home.tsx',
+  'projects': 'components/sections/Projects.tsx',
+  'experience': 'components/sections/Experience.tsx',
+  'skills': 'components/sections/Skills.tsx',
+  'contact': 'components/sections/Contact.tsx',
 };
 
 const registry = {};

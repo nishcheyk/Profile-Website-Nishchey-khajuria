@@ -2,21 +2,31 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Highlight, themes } from 'prism-react-renderer';
 import TopNav from './TopNav';
+import Home from '../../../components/sections/Home';
+import Projects from '../../../components/sections/Projects';
+import Experience from '../../../components/sections/Experience';
+import Skills from '../../../components/sections/Skills';
+import Contact from '../../../components/sections/Contact';
+import Architecture from '../../../components/sections/Architecture';
+import Secrets from '../../../components/sections/Secrets';
 import CommandPalette from '../../../components/ui/CommandPalette';
 import { useVFS } from '../../../context/VFSContext';
 import { useKeyDown } from '../../../hooks/useKeyDown';
 
 export const EDITOR_TABS = [
-  { id: 'App.tsx', label: 'App.tsx' },
-  { id: 'data.json', label: 'data.json' },
-  { id: 'ZenEditor.tsx', label: 'ZenEditor.tsx' },
-  { id: 'HeroDashboard.tsx', label: 'HeroDashboard.tsx' },
-  { id: 'TerminalTheme.tsx', label: 'TerminalTheme.tsx' },
+  { id: 'constants.ts', label: 'constants.ts' },
+  { id: 'architecture', label: 'Architecture.tsx' },
+  { id: 'secrets', label: 'Secrets.tsx' },
+  { id: 'home', label: 'Home.tsx' },
+  { id: 'projects', label: 'Projects.tsx' },
+  { id: 'experience', label: 'Experience.tsx' },
+  { id: 'skills', label: 'Skills.tsx' },
+  { id: 'contact', label: 'Contact.tsx' },
 ];
 
 export default function ZenEditor({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (id: string) => void }) {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
-  const [viewMode, setViewMode] = useState<'preview' | 'code'>('code');
+  const [viewMode, setViewMode] = useState<'preview' | 'code'>('preview');
   const { getFile, updateFile } = useVFS();
 
   // Sync Scroll Ref
@@ -40,6 +50,24 @@ export default function ZenEditor({ activeTab, setActiveTab }: { activeTab: stri
       console.log('Saved to VFS');
     }
   });
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'constants.ts': return (
+        <div className="flex items-center justify-center h-full text-slate-400 font-mono text-sm p-8 text-center border-2 border-dashed border-slate-800 rounded-xl m-8">
+          This is a raw data file. Switch to Code View to edit your Headless CMS data.
+        </div>
+      );
+      case 'architecture': return <Architecture />;
+      case 'secrets': return <Secrets />;
+      case 'home': return <Home setActiveTab={setActiveTab} />;
+      case 'projects': return <Projects />;
+      case 'experience': return <Experience />;
+      case 'skills': return <Skills />;
+      case 'contact': return <Contact />;
+      default: return <Home setActiveTab={setActiveTab} />;
+    }
+  };
 
   const currentSource = getFile(activeTab) || '// Source not found in VFS';
   const lineCount = currentSource.split('\n').length;
@@ -85,7 +113,7 @@ export default function ZenEditor({ activeTab, setActiveTab }: { activeTab: stri
               className={`min-h-full origin-center [transform-style:preserve-3d] ${viewMode === 'preview' ? 'p-8' : ''}`}
             >
               {viewMode === 'preview' ? (
-                <div className="text-secondary text-sm">Preview rendering requires full build engine. View the site directly to see effects.</div>
+                renderContent()
               ) : (
                 <div className="relative p-8 pb-32 min-h-full">
                   <textarea
