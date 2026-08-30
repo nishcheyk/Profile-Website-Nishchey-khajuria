@@ -6,6 +6,7 @@ import Bootloader from "./pages/Bootloader";
 import SparkAssistant from "./features/Spark";
 import { ToastProvider } from "./components/ui/Toast";
 import { ThemeSkeleton } from "./components/ui/ThemeSkeleton";
+import { VFSProvider } from "./context/VFSContext";
 import "./App.css";
 import { useKeyDown } from "./hooks/useKeyDown";
 
@@ -63,47 +64,49 @@ function App() {
   });
 
   return (
-    <ToastProvider>
-      <ErrorBoundary>
-        <Suspense fallback={<ThemeSkeleton />}>
-          <Routes>
-            <Route path="/" element={<Bootloader />} />
-            <Route path="/ide" element={<IDETheme />} />
-            <Route path="/saas" element={<SaaSTheme />} />
-            <Route path="/terminal" element={<TerminalTheme />} />
-            <Route path="/game" element={<GameTheme />} />
-            <Route path="/cinematic" element={<CinematicTheme />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Suspense>
+    <VFSProvider>
+      <ToastProvider>
+        <ErrorBoundary>
+          <Suspense fallback={<ThemeSkeleton />}>
+            <Routes>
+              <Route path="/" element={<Bootloader />} />
+              <Route path="/ide" element={<IDETheme />} />
+              <Route path="/saas" element={<SaaSTheme />} />
+              <Route path="/terminal" element={<TerminalTheme />} />
+              <Route path="/game" element={<GameTheme />} />
+              <Route path="/cinematic" element={<CinematicTheme />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
 
-        <SparkAssistant />
+          <SparkAssistant />
 
-        <AnimatePresence>
-          {konamiActive && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[9999] overflow-hidden bg-black flex flex-col items-center justify-center"
-            >
-              <MatrixRain />
-              <div className="relative z-10 text-center">
-                <motion.p
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: 'spring', bounce: 0.4 }}
-                  className="text-green-400 font-mono text-3xl font-bold mb-2"
-                >
-                  KONAMI CODE ACTIVATED
-                </motion.p>
-                <p className="text-green-400/60 font-mono text-sm">You found the secret. Now hire me.</p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </ErrorBoundary>
-    </ToastProvider>
+          <AnimatePresence>
+            {konamiActive && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[9999] overflow-hidden bg-black flex flex-col items-center justify-center"
+              >
+                <MatrixRain />
+                <div className="relative z-10 text-center">
+                  <motion.p
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: 'spring', bounce: 0.4 }}
+                    className="text-green-400 font-mono text-3xl font-bold mb-2"
+                  >
+                    KONAMI CODE ACTIVATED
+                  </motion.p>
+                  <p className="text-green-400/60 font-mono text-sm">You found the secret. Now hire me.</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </ErrorBoundary>
+      </ToastProvider>
+    </VFSProvider>
   );
 }
 
