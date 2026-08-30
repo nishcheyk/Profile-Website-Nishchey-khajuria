@@ -8,6 +8,7 @@ const ZONES = [
   { id: 'projects', x: -400, y: -200, w: 250, h: 200, color: 'emerald', title: 'Tavern of Projects', desc: 'View my featured case studies.' },
   { id: 'skills', x: 300, y: 150, w: 250, h: 200, color: 'blue', title: 'Forest of Skills', desc: 'My technical stack & proficiencies.' },
   { id: 'contact', x: -100, y: 400, w: 200, h: 200, color: 'fuchsia', title: 'Contact Shrine', desc: 'Send a transmission.' },
+  { id: 'npc', x: 50, y: -100, w: 80, h: 80, color: 'amber', title: 'Mysterious Stranger', desc: 'Press Space to Talk' },
 ];
 
 const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
@@ -42,7 +43,7 @@ export default function GameMap() {
   // Handle interaction
   useEffect(() => {
     const handleEnter = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' && activeZone) {
+      if ((e.key === 'Enter' || e.key === ' ') && activeZone) {
         setOpenedZone(activeZone.id);
       } else if (e.key === 'Escape') {
         setOpenedZone(null);
@@ -83,6 +84,7 @@ export default function GameMap() {
             emerald: 'border-emerald-500 shadow-emerald-500/50 bg-emerald-950/40',
             blue: 'border-blue-500 shadow-blue-500/50 bg-blue-950/40',
             fuchsia: 'border-fuchsia-500 shadow-fuchsia-500/50 bg-fuchsia-950/40',
+            amber: 'border-amber-500 shadow-amber-500/50 bg-amber-950/40',
           };
 
           return (
@@ -101,8 +103,8 @@ export default function GameMap() {
               {/* Core Platform */}
               <div className={`relative w-full h-full border border-white/20 rounded-lg backdrop-blur-sm flex flex-col items-center justify-center gap-2 overflow-hidden ${colorMap[zone.color]}`}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <span className="relative z-10 text-white font-bold font-mono tracking-widest text-lg drop-shadow-md">{zone.title}</span>
-                <span className="relative z-10 text-white/50 text-xs tracking-wider">{zone.desc}</span>
+                <span className="relative z-10 text-white font-bold font-mono tracking-widest text-lg drop-shadow-md text-center px-2">{zone.title}</span>
+                <span className="relative z-10 text-white/50 text-xs tracking-wider text-center">{zone.desc}</span>
               </div>
             </div>
           );
@@ -179,7 +181,7 @@ export default function GameMap() {
                 onClick={() => setOpenedZone(activeZone.id)}
                 className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform active:scale-95"
               >
-                Press Enter or Tap
+                Press Space or Tap
               </button>
             </div>
           </motion.div>
@@ -188,7 +190,7 @@ export default function GameMap() {
 
       {/* Content Modal (When Zone is Opened) */}
       <AnimatePresence>
-        {openedZone && (
+        {openedZone && openedZone !== 'npc' && (
           <motion.div
             initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
             animate={{ opacity: 1, backdropFilter: 'blur(20px)' }}
@@ -219,6 +221,31 @@ export default function GameMap() {
                 <p className="text-slate-400 font-mono animate-pulse">[ Content Loading... ]</p>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+        
+        {/* NPC Dialogue Box */}
+        {openedZone === 'npc' && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-[100] w-full max-w-2xl px-4"
+          >
+            <div className="bg-slate-900/95 backdrop-blur-xl border-4 border-amber-500 rounded-lg p-6 shadow-2xl text-white font-mono relative">
+              <div className="absolute -top-4 -left-2 bg-amber-500 text-black px-3 py-1 font-bold rounded-sm shadow-md">Mysterious Stranger</div>
+              <p className="text-lg leading-relaxed mt-2 typewriter">
+                "Ah, a traveler. The code paths are shifting. Some say if you enter the Konami code, the true layout reveals itself. But you didn't hear that from me."
+              </p>
+              <div className="mt-4 flex justify-end">
+                <button 
+                  onClick={() => setOpenedZone(null)}
+                  className="animate-pulse text-amber-400 text-sm font-bold uppercase"
+                >
+                  [ Press Space to Continue ]
+                </button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
