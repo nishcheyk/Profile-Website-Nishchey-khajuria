@@ -157,7 +157,7 @@ export default function Bootloader() {
         </div>
       </div>
 
-      <div className="absolute top-12 left-4 hidden md:flex flex-col gap-6 z-10 w-24">
+      <div className="absolute top-12 left-4 bottom-12 hidden md:flex flex-col flex-wrap content-start gap-2 md:gap-4 z-10 w-[50vw]">
         {DESKTOP_ICONS.map((icon, i) => (
           <motion.div
             key={icon.id}
@@ -169,7 +169,7 @@ export default function Bootloader() {
               if (icon.id === 'secret') setShowExplanation(true);
               else navigate(icon.path);
             }}
-            className={`group relative flex flex-col items-center gap-1 cursor-pointer p-2 rounded-md border border-transparent transition-colors ${
+            className={`group relative flex flex-col items-center gap-1 cursor-pointer p-2 rounded-md border border-transparent transition-colors w-24 shrink-0 ${
               selectedIcon === icon.id ? 'bg-white/20 border-white/30 backdrop-blur-sm' : 'hover:bg-white/10'
             }`}
           >

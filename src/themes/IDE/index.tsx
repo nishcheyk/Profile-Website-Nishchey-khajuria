@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useKeyDown } from "../../hooks/useKeyDown";
 import { VscFiles, VscSearch, VscSourceControl, VscExtensions, VscChevronLeft } from "react-icons/vsc";
-import ZenEditor, { EDITOR_TABS } from "./components/ZenEditor";
+import ZenEditor from "./components/ZenEditor";
 import Sidebar from "./components/Sidebar";
 import SourceControl from "./components/SourceControl";
 import ActivityBar from "./components/ActivityBar";
@@ -13,7 +13,7 @@ import ExtensionsPanel from "./components/ExtensionsPanel";
 
 export default function IDETheme() {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState(EDITOR_TABS[0].id);
+  const [activeTab, setActiveTab] = useState('App.tsx');
   const [activePanel, setActivePanel] = useState<'explorer' | 'search' | 'source-control' | 'extensions'>('explorer');
   const [isTerminalOpen, setIsTerminalOpen] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -84,9 +84,8 @@ export default function IDETheme() {
           <button
             key={id}
             onClick={() => handleMobilePanelChange(id)}
-            className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 transition-colors ${
-              isSidebarOpen && activePanel === id ? 'text-accent' : 'text-secondary hover:text-white'
-            }`}
+            className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 transition-colors ${isSidebarOpen && activePanel === id ? 'text-accent' : 'text-secondary hover:text-white'
+              }`}
           >
             <Icon size={18} />
             <span className="text-[9px]">{label}</span>
