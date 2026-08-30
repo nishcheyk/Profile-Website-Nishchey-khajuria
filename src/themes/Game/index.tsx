@@ -1,10 +1,10 @@
 import React from 'react';
-import GameMap from './components/GameMap';
+import DeckBuilder from './components/DeckBuilder';
 
 export default function GameTheme() {
   return (
     <div className="fixed inset-0 overflow-hidden font-mono bg-black">
-      <GameMap />
+      <DeckBuilder />
     </div>
   );
 }
