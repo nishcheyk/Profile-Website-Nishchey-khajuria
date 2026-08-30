@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, Suspense, lazy } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ErrorBoundary from "./components/ui/ErrorBoundary";
 import Bootloader from "./pages/Bootloader";
@@ -14,6 +14,7 @@ const IDETheme = lazy(() => import('./themes/IDE'));
 const SaaSTheme = lazy(() => import('./themes/SaaS/index'));
 const TerminalTheme = lazy(() => import('./themes/Terminal'));
 const GameTheme = lazy(() => import('./themes/Game/index'));
+const InterviewTheme = lazy(() => import('./themes/Interview/index'));
 const CinematicTheme = lazy(() => import('./themes/Cinematic/index'));
 
 const KONAMI = [
@@ -63,6 +64,8 @@ function App() {
     }
   });
 
+  const location = useLocation();
+
   return (
     <VFSProvider>
       <ToastProvider>
@@ -74,12 +77,13 @@ function App() {
               <Route path="/saas" element={<SaaSTheme />} />
               <Route path="/terminal" element={<TerminalTheme />} />
               <Route path="/game" element={<GameTheme />} />
+              <Route path="/interview" element={<InterviewTheme />} />
               <Route path="/cinematic" element={<CinematicTheme />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>
 
-          <SparkAssistant />
+          {location.pathname === '/' && <SparkAssistant />}
 
           <AnimatePresence>
             {konamiActive && (
