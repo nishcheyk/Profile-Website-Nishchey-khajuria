@@ -44,44 +44,55 @@ const generateDialogue = (): Record<string, VisualNovelNode> => {
   const tree: Record<string, VisualNovelNode> = {
     start: {
       id: 'start',
-      text: `Hello. I am the digital construct representing ${name.split(' ')[0]}. My purpose is to guide you through my creator's professional background and capabilities. What specific aspect of my creator's engineering profile would you like to evaluate today?`,
+      text: `System initialized. I am the digital construct representing ${name.split(' ')[0]}. My directive is to provide an objective analysis of my creator's engineering capabilities. \n\nI can analyze his architecture design, full-stack implementation experience, or AI systems development. Where should we begin?`,
       options: [
-        { label: "Give me the high-level summary.", targetId: 'about' },
-        { label: "Let's dive into work experience.", targetId: 'exp_0' },
-        { label: "I'll explore on my own, thanks.", targetId: 'end' }
+        { label: "Analyze AI & LLM Systems", targetId: 'ai_systems' },
+        { label: "Review Full-Stack Experience", targetId: 'full_stack' },
+        { label: "Give me the Executive Summary", targetId: 'about' }
       ]
     },
     about: {
       id: 'about',
-      text: `Certainly.\n\n${summary}\n\nThis blend of rapid prototyping and robust systems engineering allows my creator to deliver highly polished, production-ready experiences. Where should we direct our focus next?`,
+      text: `Processing executive summary...\n\n${summary}\n\nThis blend of rapid prototyping and robust systems engineering allows my creator to deliver highly polished, production-ready experiences. Which technical domain would you like to explore next?`,
       options: [
-        { label: "Show me the real-world experience.", targetId: 'exp_0' },
-        { label: "That's sufficient. Goodbye.", targetId: 'end' }
+        { label: "Dive into AI & LLM Systems", targetId: 'ai_systems' },
+        { label: "Review Full-Stack Experience", targetId: 'full_stack' },
+        { label: "End simulation", targetId: 'end' }
+      ]
+    },
+    ai_systems: {
+      id: 'ai_systems',
+      text: `Analyzing Artificial Intelligence capabilities...\n\nMy creator specializes in production-grade AI infrastructure. At 75way Technologies, he architected low-latency Voice AI systems using Twilio Media Streams, WebSockets, and ElevenLabs. \n\nHe also designs enterprise-grade RAG (Retrieval-Augmented Generation) pipelines utilizing Qdrant and Unstructured for high-accuracy retrieval.`,
+      options: [
+        { label: "How does he handle orchestration?", targetId: 'orchestration' },
+        { label: "What about his Full-Stack work?", targetId: 'full_stack' },
+        { label: "End simulation", targetId: 'end' }
+      ]
+    },
+    orchestration: {
+      id: 'orchestration',
+      text: `Regarding orchestration: He builds resilient LLM pipelines using FastAPI, Redis caching, and async job queues. This ensures that heavy AI workloads do not block the main event loop, maintaining high system availability and low latency for end users.`,
+      options: [
+        { label: "Impressive. Tell me about Full-Stack.", targetId: 'full_stack' },
+        { label: "End simulation", targetId: 'end' }
+      ]
+    },
+    full_stack: {
+      id: 'full_stack',
+      text: `Analyzing Full-Stack Engineering capabilities...\n\nHis expertise spans the MERN stack and modern frameworks like Next.js. He has a proven track record of delivering end-to-end features across frontend, backend, and database layers.\n\nHe also spent time at Infowiz Software Solutions training other developers in REST APIs, Django, and real-time Socket.io architectures.`,
+      options: [
+        { label: "What about AI integration?", targetId: 'ai_systems' },
+        { label: "End simulation", targetId: 'end' }
       ]
     },
     end: {
       id: 'end',
-      text: "Understood. The simulation will remain active should you require further insights. I wish you an excellent day.",
+      text: "Simulation suspended. The construct will remain active in the background should you require further data. I recommend reviewing the 'Projects' section in the IDE or SaaS themes for visual proof of these capabilities. \n\nGoodbye.",
       options: [
-        { label: "Wait, I have more questions.", targetId: 'start' }
+        { label: "Re-initialize simulation", targetId: 'start' }
       ]
     }
   };
-
-  experiences.forEach((exp, i) => {
-    const hasNext = i < experiences.length - 1;
-    const nextLabel = hasNext ? `What was the role before ${exp.company}?` : "";
-    
-    tree[`exp_${i}`] = {
-      id: `exp_${i}`,
-      text: `At ${exp.company}, my creator operated as a ${exp.role} from ${exp.duration}.\n\nKey impact: ${exp.points[0]}\n\nThis involved strict adherence to engineering standards and cross-functional collaboration to ensure scalability.`,
-      options: [
-        ...(hasNext ? [{ label: nextLabel, targetId: `exp_${i+1}` }] : []),
-        { label: "Let's zoom out to the high-level summary.", targetId: 'about' },
-        { label: "I've heard enough for now.", targetId: 'end' }
-      ]
-    };
-  });
 
   return tree;
 };
