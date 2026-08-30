@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HorizontalScroller } from './components/HorizontalScroller';
 import { BrutalistTitle, BrutalistCard } from './components/BrutalistTypography';
+import { name, summary, projects, seo } from '../../data/constants';
 import { useKeyDown } from '../../hooks/useKeyDown';
 
 const MATRIX = ['m','a','t','r','i','x'];
@@ -39,29 +40,24 @@ export default function CinematicTheme() {
         
         {/* Intro Slide */}
         <BrutalistTitle 
-          text="NISHCHEY" 
-          subtext="Full-Stack Engineer. UI Architect. Creative Developer."
+          text={name.toUpperCase()} 
+          subtext={summary}
         />
 
         {/* Experience / Projects Slides */}
-        <BrutalistCard 
-          title="Tavern" 
-          desc="Architected a massive scalable infrastructure processing 1M+ req/min with zero downtime." 
-          link="https://github.com/nishcheyk"
-        />
-        <BrutalistCard 
-          title="FinTech" 
-          desc="Built an end-to-end ledger system with absolute atomic consistency using PostgreSQL and Redis." 
-        />
-        <BrutalistCard 
-          title="Matrix" 
-          desc="Designed a real-time multiplayer WebSocket architecture for a live events platform." 
-        />
+        {projects.map((p, i) => (
+          <BrutalistCard 
+            key={i}
+            title={p.title} 
+            desc={p.description} 
+            link={p.git}
+          />
+        ))}
 
         {/* Outro Slide */}
         <BrutalistTitle 
           text="CONNECT" 
-          subtext="Available for new realities. nishchey@example.com"
+          subtext={`Available for new realities. Contact via LinkedIn or GitHub: ${seo.canonical}`}
         />
         
       </HorizontalScroller>
