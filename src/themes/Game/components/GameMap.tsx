@@ -3,6 +3,7 @@ import { useGameLoop } from '../hooks/useGameLoop';
 import { motion, AnimatePresence } from 'framer-motion';
 import VirtualJoystick from './VirtualJoystick';
 import { useKeyDown } from '../../../hooks/useKeyDown';
+import { projects, skills } from '../../../data/constants';
 
 const ZONES = [
   { id: 'projects', x: -400, y: -200, w: 250, h: 200, color: 'emerald', title: 'Tavern of Projects', desc: 'View my featured case studies.' },
@@ -217,8 +218,47 @@ export default function GameMap() {
                   ✕
                 </button>
               </div>
-              <div className="p-8 min-h-[400px] flex items-center justify-center">
-                <p className="text-slate-400 font-mono animate-pulse">[ Content Loading... ]</p>
+              <div className="p-8 min-h-[400px] max-h-[70vh] overflow-y-auto no-scrollbar">
+                {openedZone === 'projects' && (
+                  <div className="flex flex-col gap-6">
+                    {projects.map((p, i) => (
+                      <div key={i} className="border-2 border-emerald-500/50 bg-emerald-950/20 p-4 rounded-lg flex flex-col md:flex-row gap-4 items-start">
+                        <img src={p.image} alt={p.alt} className="w-full md:w-48 h-32 object-cover rounded-sm border border-emerald-500/30" />
+                        <div>
+                          <h4 className="text-emerald-400 font-bold text-xl uppercase font-mono">{p.title}</h4>
+                          <p className="text-slate-300 mt-2 font-mono text-sm leading-relaxed">{p.description}</p>
+                          <div className="flex flex-wrap gap-2 mt-4">
+                            {p.technologies.map((t, j) => (
+                              <span key={j} className="bg-emerald-900/50 text-emerald-300 text-xs px-2 py-1 rounded font-mono border border-emerald-500/20">{t}</span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {openedZone === 'skills' && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    {skills.map((s, i) => (
+                      <div key={i} className="border-2 border-blue-500/50 bg-blue-950/20 p-4 rounded-lg flex flex-col items-center justify-center gap-3 text-center group hover:bg-blue-900/40 transition-colors">
+                        <img src={s.image} alt={s.alt} className="w-10 h-10 grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100 invert group-hover:invert-0" />
+                        <span className="text-blue-300 font-mono text-xs uppercase font-bold">{s.title}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {openedZone === 'contact' && (
+                  <div className="flex flex-col items-center justify-center h-full gap-8 py-12">
+                    <div className="w-24 h-24 border-4 border-fuchsia-500 rounded-full animate-pulse flex items-center justify-center bg-fuchsia-950/50 shadow-[0_0_30px_rgba(217,70,239,0.3)]">
+                      <span className="text-4xl drop-shadow-lg">📨</span>
+                    </div>
+                    <h4 className="text-fuchsia-400 font-bold text-2xl uppercase font-mono tracking-widest text-center">Transmission Link Active</h4>
+                    <p className="text-slate-400 font-mono text-center max-w-md">The shrine is humming with energy. A direct connection to the creator has been established.</p>
+                    <a href="mailto:hello@example.com" className="bg-fuchsia-500 hover:bg-fuchsia-400 text-black font-bold font-mono px-8 py-3 rounded-full uppercase tracking-widest transition-colors shadow-[0_0_15px_rgba(217,70,239,0.5)]">
+                      Init Connection
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>
