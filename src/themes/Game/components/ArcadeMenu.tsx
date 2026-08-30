@@ -1,10 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface ArcadeMenuProps {
-  onSelectGame: (game: 'shooter' | 'novel') => void;
-}
-
 export default function ArcadeMenu({ onSelectGame }: ArcadeMenuProps) {
   return (
     <div className="w-full h-screen bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden font-mono">

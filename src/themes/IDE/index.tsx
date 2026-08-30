@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useKeyDown } from "../../hooks/useKeyDown";
 import { VscFiles, VscSearch, VscSourceControl, VscExtensions, VscChevronLeft } from "react-icons/vsc";
-import { AnimatePresence } from 'framer-motion';
 import ZenEditor from "./components/ZenEditor";
 import Sidebar from "./components/Sidebar";
 import SourceControl from "./components/SourceControl";
@@ -85,9 +84,8 @@ export default function IDETheme() {
           <button
             key={id}
             onClick={() => handleMobilePanelChange(id)}
-            className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 transition-colors ${
-              isSidebarOpen && activePanel === id ? 'text-accent' : 'text-secondary hover:text-white'
-            }`}
+            className={`flex-1 flex flex-col items-center justify-center py-2 gap-0.5 transition-colors ${isSidebarOpen && activePanel === id ? 'text-accent' : 'text-secondary hover:text-white'
+              }`}
           >
             <Icon size={18} />
             <span className="text-[9px]">{label}</span>

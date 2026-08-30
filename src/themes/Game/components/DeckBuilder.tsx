@@ -68,7 +68,7 @@ const generateDeck = (): CardData[] => {
 
 export default function DeckBuilder() {
   const [deck] = useState<CardData[]>(generateDeck());
-  const [hand, setHand] = useState<CardData[]>(deck.slice(0, 7));
+  const [hand] = useState<CardData[]>(deck.slice(0, 7));
   const [activeCard, setActiveCard] = useState<CardData | null>(null);
 
   return (

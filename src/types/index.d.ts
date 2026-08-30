@@ -70,6 +70,46 @@ declare global {
     action?: () => void;
     separator?: boolean;
   }
+
+  // --- Arcade Theme Types ---
+  type GameMode = 'menu' | 'shooter' | 'novel';
+
+  interface ArcadeMenuProps {
+    onSelectGame: (game: GameMode) => void;
+  }
+
+  interface SpaceShooterProps {
+    onExit: () => void;
+  }
+
+  interface VisualNovelProps {
+    onExit: () => void;
+  }
+
+  type GameObject = {
+    id: string;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    active: boolean;
+  };
+
+  type Asteroid = GameObject & {
+    speed: number;
+    data: any; 
+    type: 'project' | 'skill';
+  };
+
+  type Projectile = GameObject & {
+    speed: number;
+  };
+
+  type VisualNovelNode = {
+    id: string;
+    text: string;
+    options: { label: string; targetId: string }[];
+  };
 }
 
 export {};

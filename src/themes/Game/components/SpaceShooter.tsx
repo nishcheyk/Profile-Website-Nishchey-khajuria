@@ -2,29 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, skills } from '../../../data/constants';
 
-interface SpaceShooterProps {
-  onExit: () => void;
-}
-
-type GameObject = {
-  id: string;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  active: boolean;
-};
-
-type Asteroid = GameObject & {
-  speed: number;
-  data: any; // Project or Skill
-  type: 'project' | 'skill';
-};
-
-type Projectile = GameObject & {
-  speed: number;
-};
-
 export default function SpaceShooter({ onExit }: SpaceShooterProps) {
   const [gameState, setGameState] = useState<'playing' | 'paused'>('playing');
   const [activeModalData, setActiveModalData] = useState<any>(null);
@@ -179,8 +156,9 @@ export default function SpaceShooter({ onExit }: SpaceShooterProps) {
         });
       });
 
-      if (hitAsteroid) {
-        setActiveModalData(hitAsteroid.data);
+      const hit = hitAsteroid as Asteroid | null;
+      if (hit) {
+        setActiveModalData(hit.data);
         setGameState('paused');
         setScore(s => s + 100);
       }

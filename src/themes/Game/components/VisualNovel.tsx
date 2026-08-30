@@ -2,19 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { summary, experiences, name } from '../../../data/constants';
 
-interface VisualNovelProps {
-  onExit: () => void;
-}
-
-type Node = {
-  id: string;
-  text: string;
-  options: { label: string; targetId: string }[];
-};
-
 // Generate dialogue tree
-const generateDialogue = (): Record<string, Node> => {
-  const tree: Record<string, Node> = {
+const generateDialogue = (): Record<string, VisualNovelNode> => {
+  const tree: Record<string, VisualNovelNode> = {
     start: {
       id: 'start',
       text: `Hello there. I'm ${name.split(' ')[0]}. Welcome to my digital space. How can I help you today?`,
@@ -81,7 +71,7 @@ export default function VisualNovel({ onExit }: VisualNovelProps) {
     }, 20); // typing speed
 
     return () => clearInterval(interval);
-  }, [currentNode.id]);
+  }, [currentNode.id, currentNode.text]);
 
   return (
     <div className="w-full h-screen bg-slate-100 flex flex-col relative overflow-hidden font-sans">

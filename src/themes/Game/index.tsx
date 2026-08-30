@@ -3,8 +3,6 @@ import ArcadeMenu from './components/ArcadeMenu';
 import SpaceShooter from './components/SpaceShooter';
 import VisualNovel from './components/VisualNovel';
 
-export type GameMode = 'menu' | 'shooter' | 'novel';
-
 export default function GameTheme() {
   const [activeGame, setActiveGame] = useState<GameMode>('menu');
 
