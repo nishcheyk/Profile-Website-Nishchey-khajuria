@@ -1,16 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import { VscSearch, VscReplaceAll, VscCollapseAll, VscListSelection, VscFile, VscChevronDown } from 'react-icons/vsc';
-import sourceRegistry from '../sourceRegistry.json';
+import { useVFS } from '../../../context/VFSContext';
 
 export default function SearchPanel() {
   const [query, setQuery] = useState('');
+  const { files } = useVFS();
 
   const results = useMemo(() => {
     if (!query) return [];
     const lowerQuery = query.toLowerCase();
     const matches: { filename: string, count: number }[] = [];
     
-    Object.entries(sourceRegistry).forEach(([filename, content]) => {
+    Object.entries(files).forEach(([filename, content]) => {
       if (typeof content === 'string') {
         const lowerContent = content.toLowerCase();
         let count = 0;
@@ -25,7 +26,7 @@ export default function SearchPanel() {
       }
     });
     return matches;
-  }, [query]);
+  }, [query, files]);
 
   return (
     <div className="w-64 h-full bg-[#0f172a] border-r border-surfaceBorder flex flex-col shrink-0 select-none overflow-y-auto">

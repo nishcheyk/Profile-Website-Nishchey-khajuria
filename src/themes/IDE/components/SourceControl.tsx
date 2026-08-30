@@ -1,13 +1,44 @@
 import React from 'react';
-import { VscGitCommit, VscGitMerge, VscEllipsis } from 'react-icons/vsc';
+import { VscGitCommit, VscGitMerge, VscEllipsis, VscChevronDown, VscFile } from 'react-icons/vsc';
 import { experiences } from '../../../data/constants';
+import { useVFS } from '../../../context/VFSContext';
 
 export default function SourceControl() {
+  const { files, isDirty } = useVFS();
+  
+  const dirtyFiles = Object.keys(files).filter(isDirty);
+
   return (
     <div className="w-64 h-full bg-[#0f172a] border-r border-[#1e293b] flex flex-col shrink-0 select-none overflow-y-auto">
       <div className="px-4 py-3 text-[11px] font-bold text-[#94a3b8] uppercase tracking-widest flex items-center justify-between">
-        <span>Source Control: Resume</span>
+        <span>Source Control</span>
         <VscEllipsis size={14} className="cursor-pointer hover:text-white" />
+      </div>
+
+      <div className="px-4 py-2">
+        <div className="flex items-center gap-1 text-sm font-bold text-[#e2e8f0] mb-2 cursor-pointer">
+          <VscChevronDown size={14} />
+          <span>CHANGES</span>
+          <span className="ml-auto text-[#94a3b8] bg-white/5 rounded-full px-2 py-0.5 text-[10px] font-mono">{dirtyFiles.length}</span>
+        </div>
+        
+        {dirtyFiles.length === 0 ? (
+          <div className="text-xs text-[#64748b] ml-5 mb-6">No active changes</div>
+        ) : (
+          <div className="flex flex-col gap-1 ml-5 mb-6">
+            {dirtyFiles.map(file => (
+              <div key={file} className="flex items-center gap-2 text-xs text-[#94a3b8] hover:text-[#e2e8f0] cursor-pointer">
+                <VscFile size={12} className="text-[#eab308]" />
+                <span className="truncate">{file}</span>
+                <span className="ml-auto text-[#eab308] font-mono text-[10px]">M</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="px-4 py-3 text-[11px] font-bold text-[#94a3b8] uppercase tracking-widest flex items-center">
+        <span>Git Log: Resume</span>
       </div>
 
       <div className="flex flex-col px-4 py-2 relative">
