@@ -36,7 +36,7 @@ export default function TerminalTheme() {
     '~': {
       'projects': null,
       'resume.txt': `${name.toUpperCase()} KHAJURIA\nFull Stack Developer & AI Engineer\n\nExperience:\n${experiences.map(e => `- ${e.company} (${e.role})`).join('\n')}`,
-      'skills.txt': skills.map(s => s.title).join(', '),
+      'skills.txt': skills.map((s: any) => s.title).join(', '),
       'about.txt': summary
     },
     '~/projects': projectFiles
