@@ -1,8 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, Reorder } from 'framer-motion';
 import { springStructural } from '../../../animations';
 
+const INITIAL_METRICS = [
+  { label: 'Uptime', value: '99.99%', trend: '+0.01%' },
+  { label: 'Latency', value: '24ms', trend: '-2ms' },
+  { label: 'Active Users', value: '1,204', trend: '+12%' }
+];
+
 export default function HeroDashboard() {
+  const [metrics, setMetrics] = useState(INITIAL_METRICS);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -58,28 +66,31 @@ export default function HeroDashboard() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 md:gap-4">
-            {[
-              { label: 'Uptime', value: '99.99%', trend: '+0.01%' },
-              { label: 'Latency', value: '24ms', trend: '-2ms' },
-              { label: 'Active Users', value: '1,204', trend: '+12%' }
-            ].map((metric, i) => (
-              <motion.div
+          <Reorder.Group 
+            axis="x" 
+            values={metrics} 
+            onReorder={setMetrics} 
+            className="grid grid-cols-3 gap-2 md:gap-4"
+          >
+            {metrics.map((metric, i) => (
+              <Reorder.Item
                 key={metric.label}
+                value={metric}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + (i * 0.1), ...springStructural }}
-                whileHover={{ y: -2, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05)' }}
-                className="bg-white p-3 md:p-4 rounded-xl md:rounded-2xl border border-slate-200 shadow-sm cursor-default"
+                whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 10, boxShadow: '0 20px 40px -10px rgba(0,0,0,0.1)' }}
+                whileHover={{ y: -2, cursor: 'grab', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.05)' }}
+                className="bg-white p-3 md:p-4 rounded-xl md:rounded-2xl border border-slate-200 shadow-sm relative touch-none bg-opacity-70 backdrop-blur-xl"
               >
                 <div className="text-xs font-medium text-slate-500 mb-1">{metric.label}</div>
                 <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-2">
                   <div className="text-base md:text-2xl font-black text-slate-900 tracking-tight">{metric.value}</div>
                   <div className="text-xs font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded-md w-fit">{metric.trend}</div>
                 </div>
-              </motion.div>
+              </Reorder.Item>
             ))}
-          </div>
+          </Reorder.Group>
 
           <motion.div
             initial={{ opacity: 0 }}
